@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>새 목표 만들기</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-container": "#56656e",
+                      "primary-container": "#2976c7",
+                      "tertiary-fixed-dim": "#c1c8ca",
+                      "on-tertiary-fixed": "#161d1f",
+                      "background": "#f9f9f7",
+                      "error-container": "#ffdad6",
+                      "primary": "#005da7",
+                      "on-secondary-fixed-variant": "#3b4951",
+                      "tertiary": "#565d5f",
+                      "on-secondary": "#ffffff",
+                      "surface-dim": "#dadad8",
+                      "surface-container-high": "#e8e8e6",
+                      "surface-bright": "#f9f9f7",
+                      "on-background": "#1a1c1b",
+                      "error": "#ba1a1a",
+                      "on-primary-container": "#fdfcff",
+                      "on-tertiary-fixed-variant": "#41484a",
+                      "secondary-fixed-dim": "#bac9d3",
+                      "primary-fixed-dim": "#a4c9ff",
+                      "inverse-primary": "#a4c9ff",
+                      "outline": "#717783",
+                      "surface-container": "#eeeeec",
+                      "on-error-container": "#93000a",
+                      "surface-container-low": "#f4f4f2",
+                      "on-primary": "#ffffff",
+                      "inverse-on-surface": "#f1f1ef",
+                      "tertiary-container": "#6f7678",
+                      "surface": "#f9f9f7",
+                      "secondary-container": "#d3e2ed",
+                      "tertiary-fixed": "#dde4e6",
+                      "on-tertiary-container": "#f9fdff",
+                      "outline-variant": "#c1c7d3",
+                      "on-error": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-highest": "#e2e3e1",
+                      "surface-variant": "#e2e3e1",
+                      "secondary": "#526069",
+                      "on-surface": "#1a1c1b",
+                      "primary-fixed": "#d4e3ff",
+                      "on-surface-variant": "#414751",
+                      "on-secondary-fixed": "#0f1d25",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed-variant": "#004883",
+                      "inverse-surface": "#2f3130",
+                      "surface-tint": "#0060ac",
+                      "secondary-fixed": "#d6e5ef",
+                      "on-primary-fixed": "#001c39"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Plus Jakarta Sans"],
+                      "body": ["Plus Jakarta Sans"],
+                      "label": ["Plus Jakarta Sans"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f9f9f7; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .custom-scrollbar::-webkit-scrollbar { display: none; }
+        .dashed-border { background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='16' ry='16' stroke='%23C1C7D3FF' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e"); border-radius: 1rem; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-50 bg-surface-container-low/80 backdrop-blur-md">
+<div class="flex items-center justify-between px-6 h-16 w-full">
+<button class="hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-[#414751]">close</span>
+</button>
+<h1 class="font-['Plus_Jakarta_Sans'] text-lg font-bold tracking-tight text-[#414751]">새 목표 만들기</h1>
+<div class="w-6"></div> <!-- Spacer to center title -->
+</div>
+</header>
+<main class="max-w-2xl mx-auto px-6 pb-32 pt-4">
+<!-- Content Area -->
+<div class="space-y-10">
+<!-- Photo Upload Area -->
+<section>
+<div class="dashed-border w-full h-40 flex flex-col items-center justify-center bg-surface-container-lowest transition-all hover:bg-surface-container active:scale-[0.98] cursor-pointer">
+<span class="material-symbols-outlined text-primary mb-2 text-3xl">photo_camera</span>
+<span class="text-sm font-medium text-on-surface-variant">사진 추가 (선택)</span>
+</div>
+</section>
+<!-- Goal Name Field -->
+<section class="space-y-3">
+<label class="text-sm font-bold tracking-wide text-on-surface-variant ml-1">목표 이름</label>
+<input class="w-full bg-surface-container-highest border-none rounded-DEFAULT h-14 px-5 text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/20 transition-all" placeholder="e.g., '제주도 여행', '맛집 탐방'" type="text"/>
+</section>
+<!-- Emoji Selection -->
+<section class="space-y-4">
+<label class="text-sm font-bold tracking-wide text-on-surface-variant ml-1">아이콘 선택</label>
+<div class="flex flex-wrap gap-3">
+<!-- Iterating Emoji Chips -->
+<div class="w-12 h-12 flex items-center justify-center bg-primary rounded-full text-xl shadow-lg ring-4 ring-primary-container/20 cursor-pointer">🍽️</div>
+<div class="w-12 h-12 flex items-center justify-center bg-surface-container-highest rounded-full text-xl hover:scale-110 transition-transform cursor-pointer">🏖️</div>
+<div class="w-12 h-12 flex items-center justify-center bg-surface-container-highest rounded-full text-xl hover:scale-110 transition-transform cursor-pointer">🎁</div>
+<div class="w-12 h-12 flex items-center justify-center bg-surface-container-highest rounded-full text-xl hover:scale-110 transition-transform cursor-pointer">🎧</div>
+<div class="w-12 h-12 flex items-center justify-center bg-surface-container-highest rounded-full text-xl hover:scale-110 transition-transform cursor-pointer">👗</div>
+<div class="w-12 h-12 flex items-center justify-center bg-surface-container-highest rounded-full text-xl hover:scale-110 transition-transform cursor-pointer">🏠</div>
+<div class="w-12 h-12 flex items-center justify-center bg-surface-container-highest rounded-full text-xl hover:scale-110 transition-transform cursor-pointer">💍</div>
+<div class="w-12 h-12 flex items-center justify-center bg-surface-container-highest rounded-full text-xl hover:scale-110 transition-transform cursor-pointer">🎂</div>
+<div class="w-12 h-12 flex items-center justify-center bg-surface-container-highest rounded-full text-xl hover:scale-110 transition-transform cursor-pointer">✈️</div>
+<div class="w-12 h-12 flex items-center justify-center bg-surface-container-highest rounded-full text-xl hover:scale-110 transition-transform cursor-pointer">🎮</div>
+</div>
+</section>
+<!-- Amount Input -->
+<section class="space-y-4">
+<label class="text-sm font-bold tracking-wide text-on-surface-variant ml-1">목표 금액</label>
+<div class="relative">
+<input class="w-full bg-surface-container-highest border-none rounded-DEFAULT h-16 px-5 text-right text-2xl font-extrabold text-primary focus:ring-2 focus:ring-primary/20 transition-all" type="text" value="0 원"/>
+</div>
+<div class="flex gap-2 custom-scrollbar overflow-x-auto">
+<button class="whitespace-nowrap px-4 py-2.5 bg-surface-container-high rounded-full text-sm font-semibold text-on-surface-variant hover:bg-primary/10 hover:text-primary transition-colors">100,000</button>
+<button class="whitespace-nowrap px-4 py-2.5 bg-surface-container-high rounded-full text-sm font-semibold text-on-surface-variant hover:bg-primary/10 hover:text-primary transition-colors">300,000</button>
+<button class="whitespace-nowrap px-4 py-2.5 bg-surface-container-high rounded-full text-sm font-semibold text-on-surface-variant hover:bg-primary/10 hover:text-primary transition-colors">500,000</button>
+<button class="whitespace-nowrap px-4 py-2.5 bg-surface-container-high rounded-full text-sm font-semibold text-on-surface-variant hover:bg-primary/10 hover:text-primary transition-colors">1,000,000</button>
+</div>
+</section>
+<!-- Date Selection & Smart Card -->
+<section class="space-y-4">
+<label class="text-sm font-bold tracking-wide text-on-surface-variant ml-1">목표 날짜</label>
+<div class="flex items-center justify-between p-5 bg-surface-container-highest rounded-DEFAULT cursor-pointer hover:bg-surface-container transition-all">
+<span class="text-lg font-bold text-on-surface">2024.12.31</span>
+<span class="material-symbols-outlined text-primary">calendar_today</span>
+</div>
+<!-- Smart Insight Card (Gently Layered) -->
+<div class="p-5 bg-primary-container/10 border border-primary-container/10 rounded-lg flex items-start gap-4">
+<div class="p-2 bg-primary rounded-full">
+<span class="material-symbols-outlined text-white text-lg">trending_up</span>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="text-primary font-bold">D-45일 남음</span>
+</div>
+<p class="text-on-surface-variant text-sm font-medium leading-relaxed">
+                            하루 약 <span class="text-primary font-bold">22,200원</span>씩 모으면 달성!
+                        </p>
+</div>
+</div>
+</section>
+<!-- Priority Selection -->
+<section class="space-y-3">
+<label class="text-sm font-bold tracking-wide text-on-surface-variant ml-1">우선순위</label>
+<div class="grid grid-cols-3 gap-3">
+<button class="flex flex-col items-center gap-2 py-4 rounded-DEFAULT bg-surface-container-highest text-on-surface-variant font-bold text-sm hover:bg-surface-container transition-all">
+<span>🔥</span>
+<span>높음</span>
+</button>
+<button class="flex flex-col items-center gap-2 py-4 rounded-DEFAULT bg-primary text-white font-bold text-sm shadow-xl shadow-primary/20 scale-105">
+<span>⭐</span>
+<span>보통</span>
+</button>
+<button class="flex flex-col items-center gap-2 py-4 rounded-DEFAULT bg-surface-container-highest text-on-surface-variant font-bold text-sm hover:bg-surface-container transition-all">
+<span>💤</span>
+<span>낮음</span>
+</button>
+</div>
+</section>
+<!-- Memo Field -->
+<section class="space-y-3">
+<label class="text-sm font-bold tracking-wide text-on-surface-variant ml-1">메모</label>
+<textarea class="w-full bg-surface-container-highest border-none rounded-DEFAULT p-5 text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/20 transition-all resize-none" placeholder="함께 이루고 싶은 꿈이나 구체적인 계획을 적어주세요." rows="4"></textarea>
+</section>
+</div>
+</main>
+<!-- Bottom CTA -->
+<div class="fixed bottom-0 left-0 right-0 p-6 bg-surface/80 backdrop-blur-xl">
+<button class="max-w-2xl mx-auto w-full h-16 rounded-full bg-gradient-to-r from-primary to-primary-container text-white font-bold text-lg flex items-center justify-center gap-2 shadow-2xl shadow-primary/30 active:scale-[0.97] transition-all">
+            목표 만들기 🎯
+        </button>
+</div>
+</body></html>

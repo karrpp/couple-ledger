@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar { display: none; }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#ffdad6",
+                    "on-tertiary": "#ffffff",
+                    "inverse-primary": "#a4c9ff",
+                    "surface-container-low": "#f4f4f2",
+                    "on-primary-container": "#fdfcff",
+                    "secondary-fixed": "#d6e5ef",
+                    "on-surface": "#1a1c1b",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#565d5f",
+                    "surface-container-highest": "#e2e3e1",
+                    "surface-tint": "#0060ac",
+                    "on-tertiary-container": "#f9fdff",
+                    "primary-container": "#2976c7",
+                    "on-tertiary-fixed-variant": "#41484a",
+                    "surface-bright": "#f9f9f7",
+                    "inverse-surface": "#2f3130",
+                    "on-tertiary-fixed": "#161d1f",
+                    "on-primary-fixed": "#001c39",
+                    "on-primary-fixed-variant": "#004883",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#ba1a1a",
+                    "inverse-on-surface": "#f1f1ef",
+                    "on-surface-variant": "#414751",
+                    "surface-container": "#eeeeec",
+                    "secondary-fixed-dim": "#bac9d3",
+                    "secondary": "#526069",
+                    "tertiary-fixed-dim": "#c1c8ca",
+                    "surface-variant": "#e2e3e1",
+                    "surface-dim": "#dadad8",
+                    "on-secondary-fixed": "#0f1d25",
+                    "on-secondary-container": "#56656e",
+                    "on-secondary-fixed-variant": "#3b4951",
+                    "tertiary-fixed": "#dde4e6",
+                    "secondary-container": "#d3e2ed",
+                    "primary": "#005da7",
+                    "primary-fixed-dim": "#a4c9ff",
+                    "on-secondary": "#ffffff",
+                    "outline": "#717783",
+                    "surface-container-high": "#e8e8e6",
+                    "primary-fixed": "#d4e3ff",
+                    "outline-variant": "#c1c7d3",
+                    "on-error": "#ffffff",
+                    "surface": "#f9f9f7",
+                    "on-background": "#1a1c1b",
+                    "background": "#f9f9f7",
+                    "tertiary-container": "#6f7678",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#f9f9f7]/80 backdrop-blur-xl">
+<div class="flex items-center justify-between px-6 py-4 w-full">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="Couple profile" class="w-full h-full object-cover" data-alt="Close-up of a happy couple smiling together in a cozy indoor setting with soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAN0fZOzcRbtdX2dCv37pwFSKgxcscDe11aZxPlRE6LJY5lv3DnM--FJUpwcqwYd-ak2NnuKodUTMeqk7yG6i1HV7NlHygEcV1iW4QE0RP0jnncurlpa_CfADG8CV8Mjz9r16pm7MpqmBhdzwD9dGJT5eFc3WWq1M2MDYHLWGqHpCK7j-lkjQ7d1Y8ghBvYGiFkqhZI1I_CiLgxt9xa7g-7d3Cf2tjZvoMCmDXDsap2UNUQOKA-yjqw6JVi5aomS4jVUX5LDNUNbk4"/>
+</div>
+<h1 class="font-['Plus_Jakarta_Sans'] font-extrabold text-xl tracking-tight text-[#0060ac]">우리 가계부</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-[#f4f4f2] transition-colors">
+<span class="material-symbols-outlined text-[#414751]" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-5xl mx-auto space-y-8">
+<!-- Hero Section: Monthly Total -->
+<section class="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary to-primary-container p-8 text-on-primary shadow-[0px_24px_48px_rgba(0,96,172,0.12)]">
+<div class="relative z-10 space-y-6">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-on-primary/80 text-sm font-medium tracking-wide uppercase">이번 달 총 지출</p>
+<h2 class="text-[3.5rem] font-bold tracking-tight mt-1 leading-none">1,247,000원</h2>
+</div>
+<div class="bg-white/20 backdrop-blur-md px-4 py-2 rounded-full flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="trending_down">trending_down</span>
+<span class="text-sm font-bold">8.2%</span>
+</div>
+</div>
+<div class="flex gap-4 items-center">
+<div class="flex -space-x-3">
+<div class="w-8 h-8 rounded-full border-2 border-primary overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a young man with a friendly expression in soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFYoYGo1ukSFTBBxB_Is4jx-9OG9OiW58whCfEqO1NxZQhvCwYXug5UVTkjgHIe0pIirpaPfZk1h8EK_rVw7rCctH467us2-0RjECwPtvT6_v0OYABWvvgaN4zk8l1LyiNBnOST6isUusxYj2SlrSCbbqYb-9dOjXea3myE20nEqOEEJ129rgNsMbK-iYJSz87Yi9bswwzuu51v9ASbuUi4QsCACQVXV9Ao_kOeOzlH0oO_h_r8uoI5TkXJenjcG2m8w1_5epYwvY"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-primary overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a smiling woman with warm lighting and a blurred natural background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEBg9V5ZOH0iIP5jJueE5VGPLBVHoycaqbVfhZQzfBxlVI5Rx1FJo7Srw9vUeULuLyLi24V-eY2-8e4Wnp--31xj563dANL8NT1_LjOnHCOgwwVeA5ZX0a__c8RALFii7TCQvOsi6mA6_VE9066VQzcqK3RQimQ-CBndoStCpuFACVo_9L8euU7N31SyJqsRshPIM5Dacmh1Qmy-RBjaP3eJTAokG3PduccNDN3RCIvJYjiJMIEXlDgIA3rgc54qqfWlWlE98OxIQ"/>
+</div>
+</div>
+<p class="text-sm text-on-primary/90 font-medium italic">"지난달보다 11만원 덜 썼어요!"</p>
+</div>
+</div>
+<!-- Decorative circle -->
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+</section>
+<!-- Main Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Budget Tracking Card -->
+<div class="bg-surface-container-lowest rounded-lg p-6 space-y-6">
+<div class="flex justify-between items-center">
+<h3 class="text-lg font-bold text-on-surface tracking-tight">이달의 예산</h3>
+<span class="text-primary font-bold text-sm">83% 사용</span>
+</div>
+<div class="space-y-3">
+<div class="w-full h-4 bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-[83%]"></div>
+</div>
+<div class="flex justify-between text-xs font-bold text-on-surface-variant">
+<span>사용 1,247,000원</span>
+<span>남음 253,000원</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-md flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="savings">savings</span>
+<p class="text-sm font-semibold">저축 목표까지</p>
+</div>
+<p class="text-sm font-extrabold text-primary">₩ 420,000</p>
+</div>
+</div>
+<!-- Category Breakdown (Donut Concept) -->
+<div class="bg-surface-container-lowest rounded-lg p-6 space-y-4">
+<h3 class="text-lg font-bold text-on-surface tracking-tight">카테고리별 지출</h3>
+<div class="flex items-center gap-6">
+<div class="relative w-32 h-32 flex items-center justify-center">
+<!-- Custom CSS SVG Donut logic for visualization -->
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="none" r="16" stroke="#f4f4f2" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="none" r="16" stroke="#005da7" stroke-dasharray="45, 100" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="none" r="16" stroke="#2976c7" stroke-dasharray="30, 100" stroke-dashoffset="-45" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="none" r="16" stroke="#bac9d3" stroke-dasharray="25, 100" stroke-dashoffset="-75" stroke-width="4"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center flex-col">
+<span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">Total</span>
+<span class="text-xs font-extrabold">124만</span>
+</div>
+</div>
+<div class="flex-1 space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#005da7]"></span>
+<span class="text-xs font-semibold">식비</span>
+</div>
+<span class="text-xs font-bold">45%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#2976c7]"></span>
+<span class="text-xs font-semibold">생활/편의</span>
+</div>
+<span class="text-xs font-bold">30%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#bac9d3]"></span>
+<span class="text-xs font-semibold">교통</span>
+</div>
+<span class="text-xs font-bold">25%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Spending Trend: User Comparison -->
+<div class="bg-surface-container-lowest rounded-lg p-6 space-y-6 md:col-span-2">
+<div class="flex justify-between items-center">
+<h3 class="text-lg font-bold text-on-surface tracking-tight">주간 지출 추이</h3>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-sm bg-primary"></span>
+<span class="text-[10px] font-bold text-on-surface-variant">나</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-sm bg-on-primary-fixed-variant"></span>
+<span class="text-[10px] font-bold text-on-surface-variant">파트너</span>
+</div>
+</div>
+</div>
+<div class="h-48 flex items-end justify-between gap-4 px-2">
+<!-- Monday -->
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full flex flex-col-reverse rounded-full overflow-hidden bg-surface-container">
+<div class="h-12 bg-primary"></div>
+<div class="h-8 bg-on-primary-fixed-variant"></div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">월</span>
+</div>
+<!-- Tuesday -->
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full flex flex-col-reverse rounded-full overflow-hidden bg-surface-container">
+<div class="h-16 bg-primary"></div>
+<div class="h-10 bg-on-primary-fixed-variant"></div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">화</span>
+</div>
+<!-- Wednesday -->
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full flex flex-col-reverse rounded-full overflow-hidden bg-surface-container">
+<div class="h-24 bg-primary"></div>
+<div class="h-14 bg-on-primary-fixed-variant"></div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">수</span>
+</div>
+<!-- Thursday -->
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full flex flex-col-reverse rounded-full overflow-hidden bg-surface-container">
+<div class="h-8 bg-primary"></div>
+<div class="h-6 bg-on-primary-fixed-variant"></div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">목</span>
+</div>
+<!-- Friday -->
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full flex flex-col-reverse rounded-full overflow-hidden bg-surface-container">
+<div class="h-32 bg-primary"></div>
+<div class="h-12 bg-on-primary-fixed-variant"></div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">금</span>
+</div>
+<!-- Saturday -->
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full flex flex-col-reverse rounded-full overflow-hidden bg-surface-container">
+<div class="h-20 bg-primary"></div>
+<div class="h-28 bg-on-primary-fixed-variant"></div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">토</span>
+</div>
+<!-- Sunday -->
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full flex flex-col-reverse rounded-full overflow-hidden bg-surface-container">
+<div class="h-14 bg-primary"></div>
+<div class="h-10 bg-on-primary-fixed-variant"></div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">일</span>
+</div>
+</div>
+</div>
+<!-- Top 3 Categories Card -->
+<div class="bg-surface-container-lowest rounded-lg p-6 space-y-5">
+<h3 class="text-lg font-bold text-on-surface tracking-tight">지출 Top 3</h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between group cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="restaurant">restaurant</span>
+</div>
+<div>
+<p class="text-sm font-bold">식비</p>
+<p class="text-[10px] text-on-surface-variant font-medium">전월 대비 12% 증가</p>
+</div>
+</div>
+<p class="text-sm font-extrabold">₩ 562,000</p>
+</div>
+<div class="flex items-center justify-between group cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="home">home</span>
+</div>
+<div>
+<p class="text-sm font-bold">공과금/월세</p>
+<p class="text-[10px] text-on-surface-variant font-medium">전월 대비 동일</p>
+</div>
+</div>
+<p class="text-sm font-extrabold">₩ 450,000</p>
+</div>
+<div class="flex items-center justify-between group cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="shopping_bag">shopping_bag</span>
+</div>
+<div>
+<p class="text-sm font-bold">쇼핑</p>
+<p class="text-[10px] text-on-surface-variant font-medium">전월 대비 5% 감소</p>
+</div>
+</div>
+<p class="text-sm font-extrabold">₩ 125,000</p>
+</div>
+</div>
+</div>
+<!-- Insight Section -->
+<div class="bg-primary-container/10 rounded-lg p-6 flex flex-col justify-center space-y-2 border border-primary/10">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<h4 class="text-sm font-extrabold text-primary">스마트 리포트</h4>
+<p class="text-sm font-medium leading-relaxed text-on-surface-variant">
+                    외식 비용을 지난주보다 <span class="text-primary font-bold">24,000원</span> 절약하셨네요! 이 추세라면 이달 말에 근사한 저녁 데이트를 할 수 있어요.
+                </p>
+</div>
+</div>
+</main>
+<!-- FAB: Add Transaction -->
+<button class="fixed bottom-28 right-6 w-16 h-16 bg-gradient-to-br from-primary to-primary-container rounded-full shadow-[0px_24px_48px_rgba(0,96,172,0.25)] flex items-center justify-center text-on-primary transition-transform active:scale-95 z-40">
+<span class="material-symbols-outlined text-3xl" data-icon="add">add</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full bg-[#f9f9f7]/90 backdrop-blur-2xl rounded-t-[32px] z-50 shadow-[0px_-8px_24px_rgba(0,96,172,0.05)]">
+<div class="flex justify-around items-center px-4 pb-6 pt-3">
+<!-- Calendar -->
+<a class="flex flex-col items-center justify-center text-[#414751] dark:text-slate-400 opacity-70 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="calendar_month">calendar_month</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold">캘린더</span>
+</a>
+<!-- Dashboard (Active) -->
+<a class="flex flex-col items-center justify-center text-[#0060ac] dark:text-[#2976c7] font-bold" href="#">
+<div class="bg-[#0060ac]/5 rounded-full p-2 scale-110 mb-1">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+</div>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-bold">대시보드</span>
+</a>
+<!-- Center placeholder (FAB alignment) -->
+<div class="w-12 h-12"></div>
+<!-- Budget -->
+<a class="flex flex-col items-center justify-center text-[#414751] dark:text-slate-400 opacity-70 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold">예산</span>
+</a>
+<!-- Settings -->
+<a class="flex flex-col items-center justify-center text-[#414751] dark:text-slate-400 opacity-70 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="settings">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold">설정</span>
+</a>
+</div>
+</nav>
+</body></html>

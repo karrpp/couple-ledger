@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#d9e4e9",
+                        "surface-bright": "#f1fbff",
+                        "surface": "#f1fbff",
+                        "surface-tint": "#ae2f34",
+                        "background": "#f1fbff",
+                        "tertiary-fixed-dim": "#9ccaff",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#ffb3b0",
+                        "on-secondary-fixed": "#221b00",
+                        "primary-fixed": "#ffdad8",
+                        "on-primary-fixed-variant": "#8c1520",
+                        "tertiary": "#0062a0",
+                        "on-secondary-container": "#72632e",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d1dce0",
+                        "inverse-surface": "#283236",
+                        "primary": "#ae2f34",
+                        "on-primary-container": "#6d0010",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#f6e29f",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#e4f0f4",
+                        "primary-container": "#ff6b6b",
+                        "outline-variant": "#e0bfbd",
+                        "surface-container-low": "#eaf5fa",
+                        "inverse-on-surface": "#e7f3f7",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#59a0e4",
+                        "on-tertiary-fixed": "#001d35",
+                        "secondary-fixed-dim": "#d9c686",
+                        "on-secondary-fixed-variant": "#534613",
+                        "secondary": "#6c5d28",
+                        "on-surface-variant": "#584140",
+                        "secondary-fixed": "#f6e29f",
+                        "outline": "#8c706f",
+                        "on-primary-fixed": "#410006",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#00355b",
+                        "tertiary-fixed": "#d0e4ff",
+                        "on-tertiary-fixed-variant": "#00497a",
+                        "on-surface": "#131d21",
+                        "on-background": "#131d21",
+                        "inverse-primary": "#ffb3b0",
+                        "surface-container-high": "#dfeaef",
+                        "surface-variant": "#d9e4e9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Be Vietnam Pro"],
+                        "label": ["Be Vietnam Pro"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #ae2f34 0%, #ff6b6b 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-6 py-4 w-full sticky top-0 bg-sky-50 dark:bg-slate-950 z-50">
+<button class="scale-95 active:opacity-80 transition-all">
+<span class="material-symbols-outlined text-rose-500 dark:text-rose-400" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="text-xl font-extrabold tracking-tight text-rose-600 dark:text-rose-400 font-['Plus_Jakarta_Sans']">설정</h1>
+<button class="scale-95 active:opacity-80 transition-all">
+<span class="material-symbols-outlined text-rose-500 dark:text-rose-400" data-icon="notifications">notifications</span>
+</button>
+</header>
+<main class="px-6 space-y-6 max-w-md mx-auto mt-4">
+<!-- Couple Info Card -->
+<section class="bg-surface-container-lowest rounded-lg p-6 shadow-[0_12px_32px_-4px_rgba(174,47,52,0.08)] relative overflow-hidden">
+<div class="flex items-center gap-4 relative z-10">
+<div class="flex items-center -space-x-3">
+<div class="w-16 h-16 rounded-full border-2 border-surface bg-surface-tint overflow-hidden">
+<img alt="User A" class="w-full h-full object-cover" data-alt="Close-up portrait of a cheerful young man with warm lighting and a soft focus indoor background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBA_iLSk-kUjXVOn3ZKmJl6U0wWZdan5cT4GW-BOOO778BIF-4KIpSKcEEp7WF27GThAaORFVsJh1TKbulWM2ck0B1MjmCCAlprLTCsg5hGfatp8Gl3iCbx0BgdijqdbzBjdNVEquxwJEjRYqXebHNJlFiWq1lT6eF2onXKnB2T-lQt4hWqM25Y6HvJ6MjAlQNpuI10Q9eoxjcSyMlkLPCZE3lRyQbi8dY3NyuoGeXQDYlT1NkdAttmbwp-n2ehxDUmKfa5oACk6_o"/>
+</div>
+<div class="w-16 h-16 rounded-full border-2 border-surface bg-tertiary overflow-hidden">
+<img alt="User B" class="w-full h-full object-cover" data-alt="Close-up portrait of a smiling young woman with soft natural light and a pastel outdoor background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxGaQHLo9DBvHvX5HZA1cJ9EBD0_kWjnasonXrhVUlZIOAbOJul2Xt3_5wKR0YXVA3qXDj9GJId7qGIeI2c7lSqdFJOd0emQDwfJDmZabqOov3RkLz95uc55GBFqM1kVhul-_h1uw8fFIXHb9q3nuMlDx8Wtl4SSESWm6-Joiworfz_n17Lf1Hr_r8dBUu07uCSN8I2bmqOXnEr6ii_cTgW3nMlSX3qYPa4S2PsWlBnaQbrFiJA_NJRK2POQ4itrsB4lm-tp8UtK8"/>
+</div>
+<div class="absolute -bottom-1 left-10 bg-white rounded-full p-1 shadow-sm">
+<span class="material-symbols-outlined text-rose-500 text-sm" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+</div>
+<div class="flex-1">
+<h2 class="text-xl font-bold text-on-surface">Lio ❤️ OO</h2>
+<p class="text-sm text-on-surface-variant mt-1">연결일: 2026년 3월 15일</p>
+</div>
+<span class="material-symbols-outlined text-slate-300">chevron_right</span>
+</div>
+<!-- Decorative soft background glow -->
+<div class="absolute -right-10 -bottom-10 w-32 h-32 bg-primary-fixed-dim/20 rounded-full blur-3xl"></div>
+</section>
+<!-- Settings Groups -->
+<div class="space-y-8">
+<!-- Category Management -->
+<section>
+<h3 class="text-[0.6875rem] font-bold tracking-widest text-on-surface-variant uppercase mb-3 px-1">카테고리 관리</h3>
+<div class="bg-surface-container rounded-lg overflow-hidden">
+<button class="w-full flex items-center justify-between p-4 hover:bg-white/40 transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-rose-500" data-icon="category">category</span>
+<span class="text-on-surface font-medium">카테고리 편집</span>
+</div>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Budget -->
+<section>
+<h3 class="text-[0.6875rem] font-bold tracking-widest text-on-surface-variant uppercase mb-3 px-1">예산</h3>
+<div class="bg-surface-container rounded-lg overflow-hidden">
+<button class="w-full flex items-center justify-between p-4 hover:bg-white/40 transition-colors border-b border-white/10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-rose-500" data-icon="account_balance_wallet">account_balance_wallet</span>
+<div class="text-left">
+<span class="text-on-surface font-medium block">월 예산 설정</span>
+<span class="text-xs text-rose-600 font-semibold">1,500,000원</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 hover:bg-white/40 transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-rose-500" data-icon="notifications_active">notifications_active</span>
+<div class="text-left">
+<span class="text-on-surface font-medium block">알림 기준</span>
+<span class="text-xs text-on-surface-variant">80%, 100% 도달 시</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Notifications -->
+<section>
+<h3 class="text-[0.6875rem] font-bold tracking-widest text-on-surface-variant uppercase mb-3 px-1">알림</h3>
+<div class="bg-surface-container rounded-lg overflow-hidden">
+<div class="flex items-center justify-between p-4 border-b border-white/10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-rose-500" data-icon="warning">warning</span>
+<span class="text-on-surface font-medium">예산 초과 알림</span>
+</div>
+<!-- Custom Toggle ON -->
+<div class="w-12 h-6 bg-rose-500 rounded-full relative p-1 cursor-pointer">
+<div class="w-4 h-4 bg-white rounded-full absolute right-1"></div>
+</div>
+</div>
+<div class="flex items-center justify-between p-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400" data-icon="person_alert">person_alert</span>
+<span class="text-on-surface font-medium">상대방 지출 알림</span>
+</div>
+<!-- Custom Toggle OFF -->
+<div class="w-12 h-6 bg-slate-300 dark:bg-slate-700 rounded-full relative p-1 cursor-pointer">
+<div class="w-4 h-4 bg-white rounded-full absolute left-1"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Data -->
+<section>
+<h3 class="text-[0.6875rem] font-bold tracking-widest text-on-surface-variant uppercase mb-3 px-1">데이터</h3>
+<div class="bg-surface-container rounded-lg overflow-hidden">
+<button class="w-full flex items-center justify-between p-4 border-b border-white/10 hover:bg-white/40 transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-500" data-icon="download">download</span>
+<span class="text-on-surface font-medium">데이터 내보내기</span>
+</div>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 hover:bg-rose-50 transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-rose-600" data-icon="delete_forever">delete_forever</span>
+<span class="text-rose-600 font-bold">지출 내역 초기화</span>
+</div>
+<span class="material-symbols-outlined text-rose-300">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Account -->
+<section>
+<h3 class="text-[0.6875rem] font-bold tracking-widest text-on-surface-variant uppercase mb-3 px-1">계정</h3>
+<div class="bg-surface-container rounded-lg overflow-hidden">
+<button class="w-full flex items-center justify-between p-4 border-b border-white/10 hover:bg-white/40 transition-colors text-on-surface">
+<span class="font-medium">로그아웃</span>
+<span class="material-symbols-outlined text-slate-400">logout</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 hover:bg-white/40 transition-colors text-on-surface-variant">
+<span class="font-medium text-sm">회원 탈퇴</span>
+</button>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-8 pt-4 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-t-[3rem] z-50 shadow-[0_-8px_32px_-4px_rgba(174,47,52,0.08)]">
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-rose-400 transition-colors scale-110 active:scale-90 transition-transform duration-300">
+<span class="material-symbols-outlined text-2xl" data-icon="calendar_today">calendar_today</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[11px] font-medium mt-1">캘린더</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-rose-400 transition-colors scale-110 active:scale-90 transition-transform duration-300">
+<span class="material-symbols-outlined text-2xl" data-icon="analytics">analytics</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[11px] font-medium mt-1">대시보드</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-rose-400 transition-colors scale-110 active:scale-90 transition-transform duration-300">
+<span class="material-symbols-outlined text-4xl text-rose-500" data-icon="add_circle" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[11px] font-medium mt-1">추가</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-rose-400 transition-colors scale-110 active:scale-90 transition-transform duration-300">
+<span class="material-symbols-outlined text-2xl" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[11px] font-medium mt-1">예산</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-rose-100 dark:bg-rose-900/40 text-rose-600 dark:text-rose-200 rounded-full px-5 py-2 scale-110 active:scale-90 transition-transform duration-300">
+<span class="material-symbols-outlined text-2xl" data-icon="settings" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[11px] font-bold mt-1">설정</span>
+</div>
+</nav>
+</body></html>

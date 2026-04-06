@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Our Sanctuary - Wish Savings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#1a1c1b",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#161d1f",
+                        "on-primary-fixed-variant": "#004883",
+                        "secondary": "#526069",
+                        "on-surface-variant": "#414751",
+                        "on-primary-fixed": "#001c39",
+                        "surface-variant": "#e2e3e1",
+                        "tertiary-container": "#6f7678",
+                        "background": "#f9f9f7",
+                        "primary-container": "#2976c7",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "primary": "#005da7",
+                        "outline-variant": "#c1c7d3",
+                        "surface-container-low": "#f4f4f2",
+                        "on-tertiary-container": "#f9fdff",
+                        "on-secondary-fixed-variant": "#3b4951",
+                        "primary-fixed-dim": "#a4c9ff",
+                        "surface-tint": "#0060ac",
+                        "primary-fixed": "#d4e3ff",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#d3e2ed",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#bac9d3",
+                        "on-primary-container": "#fdfcff",
+                        "surface-container": "#eeeeec",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e8e8e6",
+                        "surface-dim": "#dadad8",
+                        "inverse-surface": "#2f3130",
+                        "outline": "#717783",
+                        "secondary-fixed": "#d6e5ef",
+                        "on-secondary-container": "#56656e",
+                        "on-tertiary-fixed-variant": "#41484a",
+                        "on-surface": "#1a1c1b",
+                        "inverse-on-surface": "#f1f1ef",
+                        "tertiary-fixed-dim": "#c1c8ca",
+                        "surface-container-highest": "#e2e3e1",
+                        "tertiary": "#565d5f",
+                        "on-secondary-fixed": "#0f1d25",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#dde4e6",
+                        "surface": "#f9f9f7",
+                        "inverse-primary": "#a4c9ff",
+                        "surface-bright": "#f9f9f7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .confetti-gradient {
+            background: radial-gradient(circle at 10% 20%, rgba(0, 93, 167, 0.05) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(255, 107, 107, 0.05) 0%, transparent 40%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface min-h-screen pb-32">
+<!-- Top Navigation Shell -->
+<header class="w-full top-0 sticky z-40 bg-[#f9f9f7] dark:bg-slate-950 flex justify-between items-center px-6 py-4">
+<div class="flex items-center gap-3">
+<h1 class="font-['Plus_Jakarta_Sans'] font-semibold tracking-tight text-xl">위시 저금통 🐷</h1>
+</div>
+<button class="text-primary font-bold text-sm hover:opacity-80 transition-opacity">
+            + 새 목표
+        </button>
+</header>
+<main class="px-6 space-y-6">
+<!-- Summary Hero Card -->
+<section class="relative overflow-hidden bg-primary-container rounded-lg p-8 text-on-primary-container shadow-[0px_24px_48px_rgba(0,96,172,0.08)] confetti-gradient">
+<div class="relative z-10">
+<span class="text-xs font-bold uppercase tracking-widest opacity-80">총 저축 현황</span>
+<h2 class="text-3xl font-extrabold mt-1 leading-tight tracking-tight">1,240,000원 모았어요!</h2>
+<div class="mt-4 flex items-center gap-2">
+<span class="bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold">진행 중 3개</span>
+<span class="bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold">달성 완료 1개</span>
+</div>
+</div>
+<!-- Decorative Elements -->
+<div class="absolute -right-4 -bottom-4 opacity-20 transform rotate-12">
+<span class="material-symbols-outlined text-8xl" style="font-variation-settings: 'FILL' 1;">savings</span>
+</div>
+</section>
+<!-- Vertical Goal Cards List -->
+<div class="space-y-6">
+<!-- Card 1: High Priority -->
+<div class="bg-surface-container-low rounded-lg p-6 flex flex-col space-y-4 hover:scale-[1.02] transition-transform duration-300">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-[#FF6B6B]/10 flex items-center justify-center text-2xl">🍽️</div>
+<div>
+<span class="text-[10px] font-extrabold text-[#FF6B6B] uppercase tracking-tighter">🔥 높음</span>
+<h3 class="text-lg font-bold">오마카세 데이트</h3>
+</div>
+</div>
+<button class="bg-primary text-white px-5 py-2 rounded-full text-xs font-bold shadow-lg shadow-primary/20">저금하기</button>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-[11px] font-bold text-on-surface-variant">
+<span>72% 달성</span>
+<span>144,000원 / 200,000원</span>
+</div>
+<div class="h-3 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 72%"></div>
+</div>
+</div>
+<div class="flex justify-between items-center pt-2">
+<div class="flex items-center gap-1 text-[11px] font-semibold text-primary">
+<span class="material-symbols-outlined text-xs">calendar_today</span>
+                        D-24 (4월 30일)
+                    </div>
+<p class="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">하루 2,334원씩 넣으면 달성 👍</p>
+</div>
+<div class="flex items-center gap-4 pt-2 border-t border-outline-variant/10">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary-fixed border-2 border-white flex items-center justify-center text-[10px] font-bold text-primary">나</div>
+<span class="text-[11px] font-medium text-on-surface-variant">82,000원</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary-fixed border-2 border-white flex items-center justify-center text-[10px] font-bold text-secondary">상대</div>
+<span class="text-[11px] font-medium text-on-surface-variant">62,000원</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Medium Priority -->
+<div class="bg-surface-container-low rounded-lg p-6 flex flex-col space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-[#FFEAA7]/20 flex items-center justify-center text-2xl">🏖️</div>
+<div>
+<span class="text-[10px] font-extrabold text-[#D4AF37] uppercase tracking-tighter">⭐ 보통</span>
+<h3 class="text-lg font-bold">제주도 여행</h3>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-[11px] font-bold text-on-surface-variant">
+<span>45% 달성</span>
+<span>540,000원 / 1,200,000원</span>
+</div>
+<div class="h-3 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary/60 rounded-full" style="width: 45%"></div>
+</div>
+</div>
+<div class="flex items-center gap-1 text-[11px] font-semibold text-on-surface-variant">
+<span class="material-symbols-outlined text-xs">timer</span>
+                    D-58
+                </div>
+</div>
+<!-- Card 3: Low Priority -->
+<div class="bg-surface-container-low rounded-lg p-6 flex flex-col space-y-4 opacity-80">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-2xl">🎧</div>
+<div>
+<span class="text-[10px] font-extrabold text-outline uppercase tracking-tighter">💤 낮음</span>
+<h3 class="text-lg font-bold">에어팟 맥스</h3>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-[11px] font-bold text-on-surface-variant">
+<span>20% 달성</span>
+<span>156,000원 / 780,000원</span>
+</div>
+<div class="h-3 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-outline/40 rounded-full" style="width: 20%"></div>
+</div>
+</div>
+</div>
+<!-- Card 4: Completed -->
+<div class="bg-emerald-50 rounded-lg p-6 flex flex-col space-y-3 relative overflow-hidden border border-emerald-100">
+<div class="flex items-center gap-3 relative z-10">
+<div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-2xl shadow-sm">🎂</div>
+<div>
+<span class="text-[10px] font-extrabold text-emerald-600 uppercase tracking-tighter">✅ 달성!</span>
+<h3 class="text-lg font-bold text-emerald-900">생일 서프라이즈</h3>
+</div>
+</div>
+<p class="text-xs font-bold text-emerald-800">150,000원 달성 완료!</p>
+<p class="text-[10px] font-medium text-emerald-600 italic">2026년 3월 20일 달성</p>
+<div class="absolute right-2 bottom-2 opacity-10">
+<span class="material-symbols-outlined text-6xl text-emerald-600" style="font-variation-settings: 'FILL' 1;">task_alt</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-[#f9f9f7]/80 dark:bg-slate-950/80 backdrop-blur-xl rounded-t-[32px] shadow-[0px_-24px_48px_rgba(0,96,172,0.08)]">
+<a class="flex flex-col items-center justify-center text-[#414751] dark:text-slate-400 p-3 hover:text-[#005da7] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-widest mt-1">캘린더</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#414751] dark:text-slate-400 p-3 hover:text-[#005da7] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-widest mt-1">대시보드</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#414751] dark:text-slate-400 p-3 hover:text-[#005da7] transition-all" href="#">
+<span class="material-symbols-outlined text-3xl" data-icon="add_circle">add_circle</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#0060ac]/10 text-[#005da7] dark:text-[#4A90E2] rounded-full p-3 transition-all scale-110" href="#">
+<span class="material-symbols-outlined" data-icon="savings" style="font-variation-settings: 'FILL' 1;">savings</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-widest mt-1">저금통</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#414751] dark:text-slate-400 p-3 hover:text-[#005da7] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-widest mt-1">설정</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-on-surface": "#f1f1ef",
+                      "surface-container": "#eeeeec",
+                      "surface-container-low": "#f4f4f2",
+                      "primary-container": "#2976c7",
+                      "outline-variant": "#c1c7d3",
+                      "secondary-container": "#d3e2ed",
+                      "error": "#ba1a1a",
+                      "on-primary": "#ffffff",
+                      "inverse-surface": "#2f3130",
+                      "primary": "#005da7",
+                      "on-primary-container": "#fdfcff",
+                      "surface-dim": "#dadad8",
+                      "on-tertiary": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "tertiary": "#565d5f",
+                      "primary-fixed": "#d4e3ff",
+                      "on-secondary-container": "#56656e",
+                      "on-primary-fixed-variant": "#004883",
+                      "primary-fixed-dim": "#a4c9ff",
+                      "on-error": "#ffffff",
+                      "on-secondary-fixed": "#0f1d25",
+                      "on-error-container": "#93000a",
+                      "surface-tint": "#0060ac",
+                      "surface-container-highest": "#e2e3e1",
+                      "surface-bright": "#f9f9f7",
+                      "surface": "#f9f9f7",
+                      "tertiary-fixed-dim": "#c1c8ca",
+                      "background": "#f9f9f7",
+                      "on-background": "#1a1c1b",
+                      "surface-variant": "#e2e3e1",
+                      "surface-container-high": "#e8e8e6",
+                      "inverse-primary": "#a4c9ff",
+                      "tertiary-fixed": "#dde4e6",
+                      "on-tertiary-container": "#f9fdff",
+                      "on-surface": "#1a1c1b",
+                      "on-tertiary-fixed-variant": "#41484a",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed": "#001c39",
+                      "outline": "#717783",
+                      "secondary-fixed": "#d6e5ef",
+                      "on-surface-variant": "#414751",
+                      "on-secondary-fixed-variant": "#3b4951",
+                      "secondary": "#526069",
+                      "secondary-fixed-dim": "#bac9d3",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-fixed": "#161d1f",
+                      "tertiary-container": "#6f7678"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Plus Jakarta Sans"],
+                      "body": ["Plus Jakarta Sans"],
+                      "label": ["Plus Jakarta Sans"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f9f9f7; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-header { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); }
+        .gradient-primary { background: linear-gradient(135deg, #005da7 0%, #2976c7 100%); }
+        .custom-shadow { box-shadow: 0px 24px 48px rgba(0, 96, 172, 0.08); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl shadow-sm">
+<div class="flex justify-between items-center px-6 py-4 w-full max-w-screen-xl mx-auto">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="close-up portrait of a happy young couple smiling at the camera in a soft daylight setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsJNATjQi_wq7j--2-Z8aTdLdAdokkauR58v-v_mM-420dBrl1jEwKX3KKE7yOIN85kAHbKkF7o8qQJPEdnY25xShN6wAUjSWpkFDNDhOiY0_DAsQO6G-fuqI7Kv_3VAexhrph2JXicjHmvhtrJwBMfvhI5LGCKlxmTcyqUB0b7n-aN-jZ4fTsbUu09c1FuK9iYZzh3I1nXaHoMrHAAD0w2CmRoTYjOJyRM2Ldkn8hqHdjDlQPlIYpCkIsz1t-RhYUIQNge4cOgOM"/>
+<div class="flex flex-col">
+<span class="text-blue-700 font-extrabold tracking-tighter text-lg leading-tight">Our Sanctuary</span>
+<span class="text-on-surface-variant text-[10px] uppercase tracking-widest font-bold">Couple Finance</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-blue-600 active:scale-95 duration-200">
+<span class="material-symbols-outlined text-2xl" data-icon="notifications">notifications</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-24 pb-32 px-6 max-w-md mx-auto space-y-8">
+<!-- Month Selector -->
+<header class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<h1 class="text-2xl font-extrabold tracking-tight text-on-surface">2026년 4월</h1>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer" data-icon="expand_more">expand_more</span>
+</div>
+<div class="bg-surface-container-high px-4 py-2 rounded-full flex items-center gap-2">
+<span class="text-xs font-bold text-primary">+12% vs 3월</span>
+</div>
+</header>
+<!-- Hero Section: Budget Progress -->
+<section class="gradient-primary text-white p-8 rounded-lg custom-shadow relative overflow-hidden">
+<!-- Decorative Grain -->
+<div class="absolute inset-0 opacity-10" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDqpJ0ql1-KuEv554BJ6fO2ptCqHWscQik0wfzItQttqYbdw35e1H9vUIoqbc4z_mG-kOxF_dgwgplUE21CWFS0HpYJPrPEZ_KHr22_Go_cHP3IGTGbRnGX9fOeK-0z5Fd2tmQm494lILi3yv0nURnTCNcR--Ee1-CKkqUv_nK5VCsY4ud-XUPkCU0QLFJbth0DnDzVcVIolPYMo99KZA9YW4PuCit3HL71FNPUCJSl6I7io5BVrLmEnZsLfoIbeBKjLGGUleD6KJU');"></div>
+<div class="relative z-10">
+<p class="text-sm font-medium opacity-80 mb-1">이번 달 총 지출</p>
+<h2 class="text-4xl font-extrabold tracking-tighter mb-6">1,847,200원</h2>
+<div class="space-y-3">
+<div class="w-full h-3 bg-white/20 rounded-full overflow-hidden">
+<div class="h-full bg-white rounded-full transition-all duration-1000" style="width: 74%"></div>
+</div>
+<div class="flex justify-between items-end">
+<div class="flex flex-col">
+<span class="text-[11px] opacity-70">월 예산 2,500,000원</span>
+<span class="text-lg font-bold">74% 사용됨</span>
+</div>
+<div class="text-right">
+<span class="text-[11px] opacity-70">남은 금액</span>
+<p class="font-bold text-blue-100">652,800원</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- New Widget: Wish Piggy Bank -->
+<section class="bg-surface-container-low p-6 rounded-lg space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="font-bold text-on-surface flex items-center gap-2">
+                    위시 저금통 <span class="text-lg">🐷</span>
+</h3>
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="arrow_forward_ios">arrow_forward_ios</span>
+</div>
+<div class="space-y-3">
+<!-- Goal Item 1 -->
+<div class="bg-white p-4 rounded-DEFAULT flex items-center gap-4 transition-colors hover:bg-blue-50/50">
+<div class="relative flex-shrink-0">
+<svg class="w-14 h-14 transform -rotate-90">
+<circle class="text-surface-container-high" cx="28" cy="28" fill="transparent" r="24" stroke="currentColor" stroke-width="5"></circle>
+<circle class="text-primary" cx="28" cy="28" fill="transparent" r="24" stroke="currentColor" stroke-dasharray="150.8" stroke-dashoffset="42.2" stroke-width="5"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="text-[10px] font-extrabold text-primary">72%</span>
+</div>
+</div>
+<div class="flex-grow">
+<p class="text-sm font-bold text-on-surface">오마카세 데이트</p>
+<div class="flex items-center gap-1">
+<span class="text-xs font-bold text-primary">144,000</span>
+<span class="text-[10px] text-on-surface-variant">/ 200,000원</span>
+</div>
+</div>
+</div>
+<!-- Goal Item 2 -->
+<div class="bg-white p-4 rounded-DEFAULT flex items-center gap-4 transition-colors hover:bg-blue-50/50">
+<div class="relative flex-shrink-0">
+<svg class="w-14 h-14 transform -rotate-90">
+<circle class="text-surface-container-high" cx="28" cy="28" fill="transparent" r="24" stroke="currentColor" stroke-width="5"></circle>
+<circle class="text-primary-container" cx="28" cy="28" fill="transparent" r="24" stroke="currentColor" stroke-dasharray="150.8" stroke-dashoffset="82.9" stroke-width="5"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="text-[10px] font-extrabold text-primary-container">45%</span>
+</div>
+</div>
+<div class="flex-grow">
+<p class="text-sm font-bold text-on-surface">제주도 여행</p>
+<div class="flex items-center gap-1">
+<span class="text-xs font-bold text-primary-container">540,000</span>
+<span class="text-[10px] text-on-surface-variant">/ 1,200,000원</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Category Section -->
+<section class="bg-surface-container-low p-6 rounded-lg">
+<h3 class="font-bold text-on-surface mb-6">카테고리별 지출</h3>
+<div class="flex flex-col md:flex-row items-center gap-8">
+<!-- Simple Pie Chart Representation -->
+<div class="relative w-40 h-40">
+<div class="absolute inset-0 rounded-full border-[18px] border-primary" style="clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 58%);"></div>
+<div class="absolute inset-0 rounded-full border-[18px] border-primary-container" style="clip-path: polygon(50% 50%, 0% 58%, 0% 0%, 50% 0%); opacity: 0.8;"></div>
+<div class="absolute inset-0 rounded-full border-[18px] border-outline-variant" style="clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 20%); opacity: 0.5;"></div>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-[10px] text-on-surface-variant font-bold uppercase">Main</span>
+<span class="text-lg font-extrabold text-primary">식비</span>
+</div>
+</div>
+<!-- Legend -->
+<div class="flex-grow w-full space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<span class="text-sm font-bold text-on-surface">식비</span>
+</div>
+<span class="text-sm font-extrabold">42%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-3 h-3 rounded-full bg-primary-container"></div>
+<span class="text-sm font-bold text-on-surface">카페</span>
+</div>
+<span class="text-sm font-extrabold">18%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-3 h-3 rounded-full bg-outline-variant"></div>
+<span class="text-sm font-bold text-on-surface">기타</span>
+</div>
+<span class="text-sm font-extrabold">40%</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Activity Feed (Optional extra for completeness) -->
+<section class="space-y-4">
+<h3 class="font-bold text-on-surface">최근 활동</h3>
+<div class="bg-white p-5 rounded-DEFAULT flex items-center justify-between border-b-0">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="restaurant">restaurant</span>
+</div>
+<div>
+<p class="text-sm font-bold">오마카세 예약</p>
+<p class="text-[11px] text-on-surface-variant">오늘 14:20 • 하민</p>
+</div>
+</div>
+<p class="text-sm font-extrabold text-error">-200,000원</p>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-end pb-6 pt-3 px-4 bg-white/90 backdrop-blur-2xl rounded-t-[32px] z-50 shadow-[0px_-8px_24px_rgba(0,96,172,0.08)]">
+<a class="flex flex-col items-center justify-center text-slate-400 p-2 hover:text-blue-500 transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="calendar_month">calendar_month</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-[11px] mt-1">캘린더</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-600 text-white rounded-full p-3 mb-2 scale-110 shadow-lg active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="grid_view" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-[11px] mt-0.5">대시보드</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 p-2 hover:text-blue-500 transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="add_circle">add_circle</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-[11px] mt-1">+</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 p-2 hover:text-blue-500 transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="savings">savings</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-[11px] mt-1">저금통</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 p-2 hover:text-blue-500 transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="settings">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-[11px] mt-1">설정</span>
+</a>
+</nav>
+</body></html>

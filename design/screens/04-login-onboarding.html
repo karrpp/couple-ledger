@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>우리 가계부 - 온보딩</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#d9e4e9",
+                    "surface-bright": "#f1fbff",
+                    "surface": "#f1fbff",
+                    "surface-tint": "#ae2f34",
+                    "background": "#f1fbff",
+                    "tertiary-fixed-dim": "#9ccaff",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#ffb3b0",
+                    "on-secondary-fixed": "#221b00",
+                    "primary-fixed": "#ffdad8",
+                    "on-primary-fixed-variant": "#8c1520",
+                    "tertiary": "#0062a0",
+                    "on-secondary-container": "#72632e",
+                    "error-container": "#ffdad6",
+                    "on-tertiary": "#ffffff",
+                    "surface-dim": "#d1dce0",
+                    "inverse-surface": "#283236",
+                    "primary": "#ae2f34",
+                    "on-primary-container": "#6d0010",
+                    "error": "#ba1a1a",
+                    "secondary-container": "#f6e29f",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#59a0e4",
+                    "on-tertiary-fixed": "#001d35",
+                    "secondary-fixed-dim": "#d9c686",
+                    "on-secondary-fixed-variant": "#534613",
+                    "secondary": "#6c5d28",
+                    "on-surface-variant": "#584140",
+                    "secondary-fixed": "#f6e29f",
+                    "outline": "#8c706f",
+                    "on-primary-fixed": "#410006",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#00355b",
+                    "tertiary-fixed": "#d0e4ff",
+                    "on-tertiary-fixed-variant": "#00497a",
+                    "on-surface": "#131d21",
+                    "on-background": "#131d21",
+                    "inverse-primary": "#ffb3b0",
+                    "surface-container-high": "#dfeaef",
+                    "surface-variant": "#d9e4e9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .kakao-yellow { background-color: #FEE500; color: #191919; }
+        .bg-onboarding-gradient {
+            background: linear-gradient(135deg, #ff6b6b 0%, #f6e29f 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased overflow-x-hidden">
+<!-- Screen 1: Splash/Welcome -->
+<section class="min-h-screen relative flex flex-col items-center justify-center bg-onboarding-gradient px-8 text-white overflow-hidden">
+<!-- Floating decorative elements -->
+<div class="absolute top-20 left-10 w-32 h-32 bg-white/20 rounded-full blur-3xl"></div>
+<div class="absolute bottom-40 right-0 w-64 h-64 bg-secondary-container/30 rounded-full blur-[80px]"></div>
+<!-- Logo Area -->
+<div class="z-10 flex flex-col items-center gap-6">
+<div class="bg-surface-container-lowest w-24 h-24 rounded-xl flex items-center justify-center shadow-2xl scale-110">
+<span class="material-symbols-outlined text-primary text-6xl" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<div class="text-center">
+<h1 class="font-headline font-extrabold text-4xl tracking-tight mb-2">우리 가계부</h1>
+<p class="text-white/90 text-lg font-medium opacity-90">둘이 함께 쓰는 스마트 가계부</p>
+</div>
+</div>
+<!-- Couple Illustration Mockup -->
+<div class="z-10 mt-16 flex items-end gap-1 relative">
+<div class="w-32 h-40 bg-surface-container-lowest/20 backdrop-blur-md rounded-t-full border-t border-x border-white/30 flex items-center justify-center">
+<div class="w-20 h-20 bg-surface-tint rounded-full flex items-center justify-center border-4 border-white shadow-lg overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="minimalist cute flat illustration avatar of a young man with a warm coral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwp1OZkLq7xR-8niIwWf7_X5Tz14R3GeQ0Ug3_wEK0eQNzvTkSGcNWtYCoPM8WoiaHzvHVtUjVkI006aRchaBDIqjBmZ11FGdQPTcBWAXMUGdssZFqN30gQYkZ8qjYEHe4gIWyLpnfP3XkC9dYS9u_LfMS9LHdnN_hTYNQkI1ovoZ7w9l6PPwJZLnAzT0fZ10XsCWwRpllDvMi9OQqWHGQ4V0p7QPD9F8jMhRR_3yhlwkAVOtu6jmUvBEtByY3EPUND2ZoNRo7nMY"/>
+</div>
+</div>
+<div class="w-32 h-44 bg-surface-container-lowest/30 backdrop-blur-lg rounded-t-full border-t border-x border-white/40 flex items-center justify-center -translate-y-4">
+<div class="w-20 h-20 bg-tertiary rounded-full flex items-center justify-center border-4 border-white shadow-lg overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="minimalist cute flat illustration avatar of a young woman with a soft sky blue background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUFYCvE278v29TbwlVb4lmv_KnJKAh686h2K5j1-dnpNJbsWfAf3TIlXvg3cvh_ZRhRe56D6tHdTfgfONe1wsh6p1oAhhLRpBcU4e5Q5rmURuuwX0_tLN5c757duRhrOll-NN_7X2vdCEmGBFAPEd4VWIY4OXsrF_rLMdhwArDTIWm_7UePZvYK2BXYp5cghcFZbLh_Uo4KmY_Ul7nv3SkiNboF9XYiI5f1Om6RHv1JCMrHENo7w7SR36gZFU69pWha_2YPEqD4Hw"/>
+</div>
+</div>
+<!-- Floating Heart Icon -->
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-white rounded-full p-3 shadow-xl">
+<span class="material-symbols-outlined text-rose-500 text-2xl" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+</div>
+<!-- Pagination Dots -->
+<div class="absolute bottom-12 flex gap-2">
+<div class="w-8 h-2 bg-white rounded-full"></div>
+<div class="w-2 h-2 bg-white/40 rounded-full"></div>
+</div>
+</section>
+<!-- Screen 2: Login Screen (Transition focus) -->
+<section class="min-h-screen bg-surface-bright flex flex-col justify-between px-8 py-20 relative">
+<!-- Abstract Background Shape -->
+<div class="absolute top-0 right-0 w-full h-[40%] bg-surface-container rounded-b-[4rem] -z-10"></div>
+<div class="flex flex-col items-center mt-8">
+<div class="mb-10 flex flex-col items-center">
+<div class="w-16 h-16 bg-white rounded-md flex items-center justify-center shadow-[0_12px_32px_-4px_rgba(174,47,52,0.08)] mb-4">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<h2 class="font-headline font-bold text-2xl text-on-surface">우리 가계부</h2>
+</div>
+<div class="text-center mb-16 px-4">
+<h3 class="text-on-surface font-semibold text-xl mb-3">반가워요!</h3>
+<p class="text-on-surface-variant leading-relaxed">사랑하는 연인과 함께<br/>투명한 자산 관리를 시작해보세요.</p>
+</div>
+<!-- Benefit Cards Bento-ish -->
+<div class="grid grid-cols-2 gap-4 w-full max-w-sm mb-12">
+<div class="bg-surface-container-lowest p-5 rounded-lg shadow-sm border border-outline-variant/10 flex flex-col gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="sync">sync</span>
+<span class="text-sm font-bold text-on-surface">실시간 공유</span>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-lg shadow-sm border border-outline-variant/10 flex flex-col gap-2 translate-y-4">
+<span class="material-symbols-outlined text-secondary" data-icon="analytics">analytics</span>
+<span class="text-sm font-bold text-on-surface">소비 분석</span>
+</div>
+</div>
+</div>
+<!-- Login Actions -->
+<div class="w-full max-w-sm mx-auto flex flex-col gap-4">
+<button class="kakao-yellow w-full h-16 rounded-md flex items-center justify-center gap-3 font-bold text-lg shadow-md active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined !text-2xl" data-icon="chat_bubble" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+                카카오로 시작하기
+            </button>
+<div class="flex flex-col items-center gap-6">
+<p class="text-[11px] text-on-surface-variant text-center leading-relaxed">
+                    로그인하면 <span class="underline underline-offset-2">서비스 이용약관</span> 및<br/><span class="underline underline-offset-2">개인정보 처리방침</span>에 동의합니다.
+                </p>
+<div class="flex gap-8">
+<button class="text-on-surface-variant text-sm font-medium hover:text-primary transition-colors">다른 방법으로 로그인</button>
+</div>
+</div>
+</div>
+</section>
+<!-- App Identity Footer (Subtle) -->
+<div class="fixed bottom-4 left-1/2 -translate-x-1/2 opacity-30 text-[10px] font-headline tracking-[0.2em] font-black uppercase text-on-surface-variant pointer-events-none">
+        Woorie Household Ledger
+    </div>
+</body></html>

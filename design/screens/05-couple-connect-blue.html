@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#a4c9ff",
+                        "surface-container-low": "#f4f4f2",
+                        "on-primary-container": "#fdfcff",
+                        "secondary-fixed": "#d6e5ef",
+                        "on-surface": "#1a1c1b",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#565d5f",
+                        "surface-container-highest": "#e2e3e1",
+                        "surface-tint": "#0060ac",
+                        "on-tertiary-container": "#f9fdff",
+                        "primary-container": "#2976c7",
+                        "on-tertiary-fixed-variant": "#41484a",
+                        "surface-bright": "#f9f9f7",
+                        "inverse-surface": "#2f3130",
+                        "on-tertiary-fixed": "#161d1f",
+                        "on-primary-fixed": "#001c39",
+                        "on-primary-fixed-variant": "#004883",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#f1f1ef",
+                        "on-surface-variant": "#414751",
+                        "surface-container": "#eeeeec",
+                        "secondary-fixed-dim": "#bac9d3",
+                        "secondary": "#526069",
+                        "tertiary-fixed-dim": "#c1c8ca",
+                        "surface-variant": "#e2e3e1",
+                        "surface-dim": "#dadad8",
+                        "on-secondary-fixed": "#0f1d25",
+                        "on-secondary-container": "#56656e",
+                        "on-secondary-fixed-variant": "#3b4951",
+                        "tertiary-fixed": "#dde4e6",
+                        "secondary-container": "#d3e2ed",
+                        "primary": "#005da7",
+                        "primary-fixed-dim": "#a4c9ff",
+                        "on-secondary": "#ffffff",
+                        "outline": "#717783",
+                        "surface-container-high": "#e8e8e6",
+                        "primary-fixed": "#d4e3ff",
+                        "outline-variant": "#c1c7d3",
+                        "on-error": "#ffffff",
+                        "surface": "#f9f9f7",
+                        "on-background": "#1a1c1b",
+                        "background": "#f9f9f7",
+                        "tertiary-container": "#6f7678",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col items-center">
+<!-- Top Navigation Anchor (Manual Mockup for Detail Screen Suppression) -->
+<header class="fixed top-0 w-full z-50 bg-[#f9f9f7]/80 backdrop-blur-xl flex items-center justify-between px-6 py-4">
+<button class="w-10 h-10 flex items-center justify-center hover:bg-[#f4f4f2] rounded-full transition-colors active:scale-95">
+<span class="material-symbols-outlined text-on-surface-variant">arrow_back</span>
+</button>
+<h1 class="text-xl font-extrabold text-[#0060ac] tracking-tight">우리 가계부</h1>
+<div class="w-10"></div> <!-- Spacer for centering -->
+</header>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-md pt-24 pb-12 px-6 flex flex-col">
+<!-- Welcome/Hero Section -->
+<section class="text-center mb-12">
+<div class="relative inline-block mb-6">
+<div class="w-24 h-24 rounded-full bg-gradient-to-tr from-primary to-primary-container flex items-center justify-center shadow-[0px_24px_48px_rgba(0,96,172,0.15)]">
+<span class="material-symbols-outlined text-white text-5xl" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<!-- Shared Bubble indicator mockup -->
+<div class="absolute -bottom-1 -right-1 w-10 h-10 rounded-full border-2 border-surface bg-surface-container-lowest overflow-hidden">
+<img alt="Partner placeholder avatar" class="w-full h-full object-cover" data-alt="close-up of a happy person with a soft smile in a bright airy minimalist background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbe9wiAQOIShyd_zodQ1yTprlLo8H1s6Es-li7wm_UnTq6jqgIf1Ps-Coaq5EGL2FyvHIb-LkRTkK0FlrqIh8COLUoB3-NiwOrLF0YfJpUp_5Y_UKFTAJaeLGqBZzioW-h7k9haBPC09pinXg9HajFL_UvOsPp6e9IkMsADluzC20Vm4RnVWdMERnmVS2WxFcpJnHO3KpeKanOtYspeY58FcL2okbsfuA20dKLQpmxrvtjeyEeDER4ciC1cNsAAZX49KFuaCmH1ZU"/>
+</div>
+</div>
+<h2 class="text-3xl font-extrabold text-on-surface tracking-tight mb-2">커플 연결하기</h2>
+<p class="text-on-surface-variant leading-relaxed">함께 관리하는 똑똑한 자산 관리의 시작,<br/>파트너를 초대해 보세요.</p>
+</section>
+<!-- Connection Code Card -->
+<div class="bg-surface-container-low p-8 rounded-lg mb-10 text-center relative overflow-hidden">
+<!-- Decorative gradient blur -->
+<div class="absolute -top-20 -right-20 w-40 h-40 bg-primary/5 rounded-full blur-3xl"></div>
+<p class="text-sm font-bold text-primary mb-4 tracking-widest uppercase">MY INVITE CODE</p>
+<div class="bg-surface-container-lowest py-6 px-4 rounded-md shadow-sm mb-6 flex justify-center items-center gap-4">
+<span class="text-4xl font-extrabold tracking-[0.2em] text-[#0060ac]">A3F 82K</span>
+</div>
+<div class="flex flex-col gap-3">
+<button class="flex items-center justify-center gap-2 w-full py-4 bg-primary text-white font-bold rounded-full hover:shadow-lg transition-all active:scale-95 shadow-[0px_12px_24px_rgba(0,93,167,0.15)]">
+<span class="material-symbols-outlined text-xl">content_copy</span>
+<span>코드 복사</span>
+</button>
+<button class="flex items-center justify-center gap-2 w-full py-4 bg-[#FEE500] text-[#3c1e1e] font-bold rounded-full hover:shadow-md transition-all active:scale-95">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+<span>카카오톡으로 공유</span>
+</button>
+</div>
+</div>
+<!-- Input Section -->
+<section class="space-y-6">
+<div class="text-center relative">
+<span class="bg-surface px-4 text-on-surface-variant text-sm font-medium relative z-10">또는</span>
+<div class="absolute top-1/2 left-0 w-full h-[1px] bg-outline-variant/20 -z-0"></div>
+</div>
+<div class="space-y-3">
+<label class="block text-sm font-bold text-on-surface-variant ml-4">이미 코드를 받으셨나요?</label>
+<input class="w-full h-16 px-6 bg-surface-container-highest border-none rounded-md text-center text-xl font-bold focus:ring-2 focus:ring-primary/20 placeholder:text-on-surface-variant/40 transition-all" placeholder="상대방의 초대코드 입력" type="text"/>
+</div>
+<button class="w-full h-16 bg-gradient-to-r from-primary to-primary-container text-white text-lg font-extrabold rounded-full shadow-[0px_24px_48px_rgba(0,96,172,0.12)] hover:scale-[1.02] active:scale-[0.98] transition-all">
+                연결하기
+            </button>
+</section>
+<!-- Illustration / Mood Section -->
+<div class="mt-16 rounded-lg overflow-hidden h-48 relative">
+<img alt="Happy couple illustration" class="w-full h-full object-cover" data-alt="Modern minimalist 3D illustration of a couple sitting on a sofa looking at a shared tablet screen, soft pastel blue and white tones, warm cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAB36eXgciO6Ac8EAhJ8F8gZVEXCwZlwqJ1KhImZa1k7xq1F2Zgpslz4-Ss2J3bxGTT1ypDkth4SqUzXJNdtGgNKcVGun-5oZ6DEprbP4jKmSH0qYNo2sA2LxQsQ5wKdf4p1mPlBZvos8MqE6zu7RWiJr-jWZYkFDt9TlL1bJ7_KgW-5RImrNmsWF86Jtlb0_0D7bJsrpaZ6wiY94tXkVg3eG0qmu50t972093kPaj5A99u7Xu1n06v_pk2T6hrFHtWXzP75szA62g"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+</div>
+<p class="text-center mt-8 text-xs text-on-surface-variant/60 leading-relaxed">
+            상대방이 코드를 입력하면 즉시 데이터가 동기화됩니다.<br/>
+            개인 자산 노출 설정은 나중에 환경설정에서 변경할 수 있습니다.
+        </p>
+</main>
+<!-- Suppressed Shell Components according to "Destination Rule" & "Contextual FAB Suppression" -->
+<!-- (No BottomNavBar or FAB as this is a focused onboarding/connection task) -->
+</body></html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#d9e4e9",
+                        "surface-bright": "#f1fbff",
+                        "surface": "#f1fbff",
+                        "surface-tint": "#ae2f34",
+                        "background": "#f1fbff",
+                        "tertiary-fixed-dim": "#9ccaff",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#ffb3b0",
+                        "on-secondary-fixed": "#221b00",
+                        "primary-fixed": "#ffdad8",
+                        "on-primary-fixed-variant": "#8c1520",
+                        "tertiary": "#0062a0",
+                        "on-secondary-container": "#72632e",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d1dce0",
+                        "inverse-surface": "#283236",
+                        "primary": "#ae2f34",
+                        "on-primary-container": "#6d0010",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#f6e29f",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#59a0e4",
+                        "on-tertiary-fixed": "#001d35",
+                        "secondary-fixed-dim": "#d9c686",
+                        "on-secondary-fixed-variant": "#534613",
+                        "secondary": "#6c5d28",
+                        "on-surface-variant": "#584140",
+                        "secondary-fixed": "#f6e29f",
+                        "outline": "#8c706f",
+                        "on-primary-fixed": "#410006",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#00355b",
+                        "tertiary-fixed": "#d0e4ff",
+                        "on-tertiary-fixed-variant": "#00497a",
+                        "on-surface": "#131d21",
+                        "on-background": "#131d21",
+                        "inverse-primary": "#ffb3b0",
+                        "surface-container-high": "#dfeaef",
+                        "surface-variant": "#d9e4e9",
+                        "surface-container": "#e4f0f4",
+                        "primary-container": "#ff6b6b",
+                        "outline-variant": "#e0bfbd",
+                        "surface-container-low": "#eaf5fa"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans", "Pretendard"],
+                        "body": ["Be Vietnam Pro", "Pretendard"],
+                        "label": ["Be Vietnam Pro", "Pretendard"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+        body { font-family: 'Pretendard', 'Be Vietnam Pro', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-6 py-4 w-full bg-sky-50 dark:bg-slate-950 sticky top-0 z-40">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-rose-50 transition-all active:opacity-80 scale-95">
+<span class="material-symbols-outlined text-rose-500">arrow_back</span>
+</button>
+<h1 class="text-xl font-extrabold tracking-tight text-rose-600 dark:text-rose-400 font-['Plus_Jakarta_Sans']">예산 관리</h1>
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-rose-50 transition-all active:opacity-80 scale-95">
+<span class="material-symbols-outlined text-rose-500">settings</span>
+</button>
+</header>
+<main class="px-6 space-y-6 mt-4">
+<!-- Current Month Budget Card (Level 2: Interactive Card) -->
+<section class="bg-surface-container-lowest rounded-xl p-8 shadow-[0_12px_32px_-4px_rgba(174,47,52,0.08)] relative overflow-hidden">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h2 class="text-on-surface-variant font-label text-xs uppercase tracking-widest mb-1">CURRENT BUDGET</h2>
+<div class="flex items-center gap-2">
+<span class="text-2xl font-headline font-bold text-on-surface">4월 예산</span>
+</div>
+</div>
+<div class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+<span class="w-2 h-2 bg-amber-500 rounded-full"></span>
+                    주의
+                </div>
+</div>
+<!-- Editable Amount -->
+<div class="flex items-center gap-2 mb-10 group cursor-pointer">
+<span class="text-4xl font-headline font-extrabold tracking-tight text-primary">1,500,000원</span>
+<span class="material-symbols-outlined text-on-surface-variant text-lg">edit</span>
+</div>
+<!-- Large Circular Progress -->
+<div class="relative flex justify-center items-center py-4">
+<svg class="w-64 h-64 transform -rotate-90">
+<circle class="text-surface-container" cx="128" cy="128" fill="transparent" r="110" stroke="currentColor" stroke-width="14"></circle>
+<circle cx="128" cy="128" fill="transparent" r="110" stroke="url(#gradient)" stroke-dasharray="691" stroke-dashoffset="117" stroke-linecap="round" stroke-width="14"></circle>
+<defs>
+<lineargradient id="gradient" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#ae2f34"></stop>
+<stop offset="100%" stop-color="#ff6b6b"></stop>
+</lineargradient>
+</defs>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<span class="text-5xl font-headline font-black text-on-surface">83%</span>
+<span class="text-sm font-medium text-on-surface-variant mt-1">1,247,000원 사용</span>
+<div class="mt-4 px-4 py-1.5 bg-primary-fixed text-on-primary-fixed text-xs font-bold rounded-full">
+                        253,000원 남음
+                    </div>
+</div>
+</div>
+</section>
+<!-- Spending Pace Indicator (Asymmetric Layering) -->
+<section class="bg-surface-container rounded-lg p-6 flex flex-col gap-4 relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary-container/10 rounded-full blur-2xl"></div>
+<div class="flex items-start gap-4">
+<div class="bg-surface-container-lowest p-3 rounded-md shadow-sm">
+<span class="material-symbols-outlined text-primary">trending_up</span>
+</div>
+<div class="space-y-1">
+<p class="text-on-surface font-semibold text-lg">일 평균 <span class="text-primary">41,500원</span> 지출 중</p>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                        이 속도면 월말 예상: <span class="font-bold">1,660,000원</span>
+</p>
+</div>
+</div>
+<div class="bg-error-container/40 border border-error/10 p-3 rounded-md flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-sm">warning</span>
+<span class="text-on-error-container text-xs font-bold">이번 달은 예산을 초과할 것 같아요! 조금만 아껴볼까요? ⚠️</span>
+</div>
+</section>
+<!-- Monthly History List -->
+<section class="space-y-4">
+<h3 class="text-on-surface-variant font-label text-xs uppercase tracking-widest pl-2">지난 예산 기록</h3>
+<!-- 3월 Record -->
+<div class="bg-surface-container-low rounded-lg p-5 flex items-center justify-between group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest flex items-center justify-center font-headline font-bold text-on-surface-variant">
+                        3월
+                    </div>
+<div>
+<div class="text-on-surface font-bold">1,380,000원 / 1.5M</div>
+<div class="text-xs text-on-surface-variant mt-0.5">사용률 92% • 목표 달성 실패</div>
+</div>
+</div>
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-rose-50">
+<span class="text-xl">🔴</span>
+</div>
+</div>
+<!-- 2월 Record -->
+<div class="bg-surface-container-low rounded-lg p-5 flex items-center justify-between group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest flex items-center justify-center font-headline font-bold text-on-surface-variant">
+                        2월
+                    </div>
+<div>
+<div class="text-on-surface font-bold">1,120,000원 / 1.5M</div>
+<div class="text-xs text-on-surface-variant mt-0.5">사용률 75% • 예산 절약 성공!</div>
+</div>
+</div>
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-teal-50">
+<span class="text-xl">🟢</span>
+</div>
+</div>
+</section>
+<!-- Decorative Encouragement -->
+<div class="pt-4 pb-8 text-center">
+<p class="text-on-surface-variant text-sm italic">"함께 아끼고 모으는 즐거움, 우리만의 소중한 기록"</p>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-8 pt-4 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-t-[3rem] z-50 shadow-[0_-8px_32px_-4px_rgba(174,47,52,0.08)]">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-rose-400 transition-colors" href="#">
+<span class="material-symbols-outlined scale-110 active:scale-90 transition-transform duration-300">calendar_today</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[11px] font-medium mt-1">캘린더</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-rose-400 transition-colors" href="#">
+<span class="material-symbols-outlined scale-110 active:scale-90 transition-transform duration-300">analytics</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[11px] font-medium mt-1">대시보드</span>
+</a>
+<button class="flex items-center justify-center -mt-12 w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary-container text-white shadow-xl scale-110 active:scale-90 transition-transform duration-300">
+<span class="material-symbols-outlined text-3xl" data-weight="fill">add_circle</span>
+</button>
+<a class="flex flex-col items-center justify-center bg-rose-100 dark:bg-rose-900/40 text-rose-600 dark:text-rose-200 rounded-full px-5 py-2 scale-110 active:scale-90 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" data-weight="fill">account_balance_wallet</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[11px] font-bold mt-1">예산</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-rose-400 transition-colors" href="#">
+<span class="material-symbols-outlined scale-110 active:scale-90 transition-transform duration-300">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[11px] font-medium mt-1">설정</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>우리 가계부 - 예산 관리</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#ffdad6",
+                    "on-tertiary": "#ffffff",
+                    "inverse-primary": "#a4c9ff",
+                    "surface-container-low": "#f4f4f2",
+                    "on-primary-container": "#fdfcff",
+                    "secondary-fixed": "#d6e5ef",
+                    "on-surface": "#1a1c1b",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#565d5f",
+                    "surface-container-highest": "#e2e3e1",
+                    "surface-tint": "#0060ac",
+                    "on-tertiary-container": "#f9fdff",
+                    "primary-container": "#2976c7",
+                    "on-tertiary-fixed-variant": "#41484a",
+                    "surface-bright": "#f9f9f7",
+                    "inverse-surface": "#2f3130",
+                    "on-tertiary-fixed": "#161d1f",
+                    "on-primary-fixed": "#001c39",
+                    "on-primary-fixed-variant": "#004883",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#ba1a1a",
+                    "inverse-on-surface": "#f1f1ef",
+                    "on-surface-variant": "#414751",
+                    "surface-container": "#eeeeec",
+                    "secondary-fixed-dim": "#bac9d3",
+                    "secondary": "#526069",
+                    "tertiary-fixed-dim": "#c1c8ca",
+                    "surface-variant": "#e2e3e1",
+                    "surface-dim": "#dadad8",
+                    "on-secondary-fixed": "#0f1d25",
+                    "on-secondary-container": "#56656e",
+                    "on-secondary-fixed-variant": "#3b4951",
+                    "tertiary-fixed": "#dde4e6",
+                    "secondary-container": "#d3e2ed",
+                    "primary": "#005da7",
+                    "primary-fixed-dim": "#a4c9ff",
+                    "on-secondary": "#ffffff",
+                    "outline": "#717783",
+                    "surface-container-high": "#e8e8e6",
+                    "primary-fixed": "#d4e3ff",
+                    "outline-variant": "#c1c7d3",
+                    "on-error": "#ffffff",
+                    "surface": "#f9f9f7",
+                    "on-background": "#1a1c1b",
+                    "background": "#f9f9f7",
+                    "tertiary-container": "#6f7678",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .circular-progress {
+            background: conic-gradient(from 0deg, #005da7 0%, #005da7 83%, #e2e3e1 83%, #e2e3e1 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-[#f9f9f7]/80 backdrop-blur-xl flex items-center justify-between px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="close up of a happy young couple laughing together in a brightly lit modern apartment setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLZ2KGnpnR5p8wMt8y_Y1CLKONW9TqYJ1s6XoWEaBURUpB8RwEe3n49V1QM5lyJd6xOMTTnR9iQZZRSuu85sNWOs5avok1m_X0hzwxM0dx8Gu5W6v4wWFoNUUh-VGboO3SLr-dgloqGhlDfmc4Mj0wZuKL1XbSk0Plzwa1L4L_aJDwwcZqg2Dv2ZRRa78SBlt5m97f6ruexuo2-xQuC4TyMkiMhrqDW2_L92-XnGPflkd7VyOofUDaS4CxF8D5eeIkn97IZMURO1o"/>
+</div>
+<h1 class="text-xl font-extrabold text-[#0060ac] tracking-tight">우리 가계부</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-[#f4f4f2] transition-colors">
+<span class="material-symbols-outlined text-[#414751]" data-icon="notifications">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 px-6 max-w-2xl mx-auto">
+<!-- Budget Hero Section -->
+<section class="flex flex-col items-center mb-10">
+<div class="relative w-64 h-64 flex items-center justify-center">
+<!-- Circular Gauge -->
+<div class="absolute inset-0 rounded-full circular-progress opacity-20"></div>
+<!-- Inner Ring for depth -->
+<div class="absolute inset-4 rounded-full bg-surface-container-lowest flex flex-col items-center justify-center shadow-[0px_24px_48px_rgba(0,96,172,0.08)]">
+<span class="text-on-surface-variant text-sm font-semibold mb-1">83% 사용</span>
+<span class="text-4xl font-extrabold text-primary tracking-tight">1,247,000원</span>
+<div class="mt-2 px-3 py-1 bg-primary/5 rounded-full">
+<span class="text-xs font-bold text-primary">목표: 1,500,000원</span>
+</div>
+</div>
+</div>
+<div class="mt-8 text-center">
+<h2 class="text-2xl font-bold text-on-surface mb-1">253,000원 남음</h2>
+<p class="text-on-surface-variant text-sm">이번 달 종료까지 5일 남았습니다</p>
+</div>
+</section>
+<!-- Spending Pace Bento Card -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+<div class="bg-surface-container-low p-6 rounded-lg flex flex-col justify-between">
+<div>
+<h3 class="text-on-surface-variant text-xs font-bold uppercase tracking-wider mb-4">지출 페이스</h3>
+<div class="flex items-end gap-2">
+<span class="text-2xl font-bold text-primary">순조로움</span>
+<span class="text-sm text-on-surface-variant pb-1">평소보다 12% 절약 중</span>
+</div>
+</div>
+<div class="mt-6 h-12 flex items-end gap-1">
+<div class="w-full bg-primary/20 h-4 rounded-t-sm"></div>
+<div class="w-full bg-primary/20 h-6 rounded-t-sm"></div>
+<div class="w-full bg-primary/20 h-5 rounded-t-sm"></div>
+<div class="w-full bg-primary/20 h-8 rounded-t-sm"></div>
+<div class="w-full bg-primary/20 h-7 rounded-t-sm"></div>
+<div class="w-full bg-primary/40 h-10 rounded-t-sm"></div>
+<div class="w-full bg-primary h-12 rounded-t-sm"></div>
+</div>
+</div>
+<div class="bg-primary p-6 rounded-lg text-on-primary shadow-[0px_24px_48px_rgba(0,96,172,0.15)] flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined mb-2" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h3 class="text-sm font-bold opacity-80">AI 절약 제안</h3>
+</div>
+<p class="text-lg font-semibold leading-snug">카페 지출을 1만원만 줄이면 목표 저축액을 달성해요!</p>
+<div class="mt-4 flex justify-end">
+<button class="bg-white/20 hover:bg-white/30 transition-colors px-4 py-2 rounded-full text-xs font-bold">자세히 보기</button>
+</div>
+</div>
+</div>
+<!-- History List -->
+<section class="mb-12">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-xl font-bold text-on-surface">지난 예산 기록</h3>
+<button class="text-primary text-sm font-bold flex items-center gap-1">
+                    전체보기 <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<div class="space-y-4">
+<!-- History Item 1 -->
+<div class="bg-surface-container-lowest p-5 rounded-lg flex flex-col gap-3 group hover:bg-surface-container-low transition-colors">
+<div class="flex justify-between items-center">
+<span class="font-bold text-on-surface">2023년 12월</span>
+<span class="text-sm font-semibold text-primary">92% 사용</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-[92%]"></div>
+</div>
+<div class="flex justify-between text-xs text-on-surface-variant font-medium">
+<span>사용: 1,380,000원</span>
+<span>예산: 1,500,000원</span>
+</div>
+</div>
+<!-- History Item 2 -->
+<div class="bg-surface-container-lowest p-5 rounded-lg flex flex-col gap-3 group hover:bg-surface-container-low transition-colors">
+<div class="flex justify-between items-center">
+<span class="font-bold text-on-surface">2023년 11월</span>
+<span class="text-sm font-semibold text-primary">105% 초과</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-error rounded-full w-full"></div>
+</div>
+<div class="flex justify-between text-xs text-on-surface-variant font-medium">
+<span class="text-error font-bold">사용: 1,575,000원</span>
+<span>예산: 1,500,000원</span>
+</div>
+</div>
+<!-- History Item 3 -->
+<div class="bg-surface-container-lowest p-5 rounded-lg flex flex-col gap-3 group hover:bg-surface-container-low transition-colors">
+<div class="flex justify-between items-center">
+<span class="font-bold text-on-surface">2023년 10월</span>
+<span class="text-sm font-semibold text-primary">88% 사용</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-[88%]"></div>
+</div>
+<div class="flex justify-between text-xs text-on-surface-variant font-medium">
+<span>사용: 1,320,000원</span>
+<span>예산: 1,500,000원</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Action Button (Suppressed on details, but relevant here for "Add Budget Change") -->
+<button class="fixed bottom-28 right-6 w-14 h-14 bg-primary text-on-primary rounded-full shadow-[0px_24px_48px_rgba(0,96,172,0.15)] flex items-center justify-center hover:scale-105 active:scale-95 transition-transform z-50">
+<span class="material-symbols-outlined" data-icon="add" style="font-variation-settings: 'wght' 600;">add</span>
+</button>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#f9f9f7]/90 backdrop-blur-2xl rounded-t-[32px] shadow-[0px_-8px_24px_rgba(0,96,172,0.05)] z-50">
+<a class="flex flex-col items-center justify-center text-[#414751] opacity-70 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold mt-1">캘린더</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#414751] opacity-70 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold mt-1">대시보드</span>
+</a>
+<div class="relative -top-8">
+<div class="w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-white" data-icon="add">add</span>
+</div>
+</div>
+<a class="flex flex-col items-center justify-center text-[#0060ac] font-bold bg-[#0060ac]/5 rounded-full p-2 scale-110" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-bold mt-1">예산</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#414751] opacity-70 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold mt-1">설정</span>
+</a>
+</nav>
+</body></html>

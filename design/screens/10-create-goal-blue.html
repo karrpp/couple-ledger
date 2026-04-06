@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>새 목표 만들기</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-highest": "#e2e3e1",
+                      "surface-container-high": "#e8e8e6",
+                      "inverse-surface": "#2f3130",
+                      "tertiary-fixed": "#dde4e6",
+                      "primary": "#005da7",
+                      "on-secondary-fixed-variant": "#3b4951",
+                      "on-secondary-fixed": "#0f1d25",
+                      "on-surface-variant": "#414751",
+                      "surface-container-low": "#f4f4f2",
+                      "on-primary": "#ffffff",
+                      "on-surface": "#1a1c1b",
+                      "on-primary-fixed-variant": "#004883",
+                      "on-tertiary": "#ffffff",
+                      "surface-tint": "#0060ac",
+                      "on-tertiary-container": "#f9fdff",
+                      "secondary": "#526069",
+                      "on-secondary": "#ffffff",
+                      "on-background": "#1a1c1b",
+                      "secondary-fixed": "#d6e5ef",
+                      "primary-fixed-dim": "#a4c9ff",
+                      "on-error-container": "#93000a",
+                      "primary-container": "#2976c7",
+                      "on-tertiary-fixed": "#161d1f",
+                      "secondary-fixed-dim": "#bac9d3",
+                      "on-error": "#ffffff",
+                      "surface": "#f9f9f7",
+                      "surface-container": "#eeeeec",
+                      "secondary-container": "#d3e2ed",
+                      "surface-dim": "#dadad8",
+                      "primary-fixed": "#d4e3ff",
+                      "outline": "#717783",
+                      "on-secondary-container": "#56656e",
+                      "error-container": "#ffdad6",
+                      "tertiary-fixed-dim": "#c1c8ca",
+                      "outline-variant": "#c1c7d3",
+                      "inverse-on-surface": "#f1f1ef",
+                      "inverse-primary": "#a4c9ff",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-container": "#fdfcff",
+                      "surface-bright": "#f9f9f7",
+                      "on-primary-fixed": "#001c39",
+                      "on-tertiary-fixed-variant": "#41484a",
+                      "error": "#ba1a1a",
+                      "tertiary": "#565d5f",
+                      "surface-variant": "#e2e3e1",
+                      "tertiary-container": "#6f7678",
+                      "background": "#f9f9f7"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Plus Jakarta Sans"],
+                      "body": ["Plus Jakarta Sans"],
+                      "label": ["Plus Jakarta Sans"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-transition { transition: background-color 0.3s ease; }
+        .no-line { border: none !important; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 tonal-transition bg-[#f4f4f2] dark:bg-slate-900 flex items-center justify-between px-6 py-4">
+<button class="hover:bg-[#f4f4f2] transition-colors p-2 rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="close">close</span>
+</button>
+<h1 class="font-headline text-lg font-semibold tracking-tight text-on-surface">새 목표 만들기</h1>
+<div class="w-10"></div> <!-- Spacer for centering -->
+</header>
+<main class="pt-24 px-6 max-w-2xl mx-auto space-y-10">
+<!-- 1. Photo Placeholder -->
+<section>
+<div class="group relative w-full aspect-[16/9] bg-surface-container rounded-lg overflow-hidden flex flex-col items-center justify-center cursor-pointer transition-all hover:bg-surface-container-high">
+<div class="flex flex-col items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-4xl" data-icon="photo_camera">photo_camera</span>
+<span class="text-sm font-medium">사진 추가 (선택)</span>
+</div>
+<div class="absolute inset-0 opacity-10 bg-gradient-to-br from-primary to-transparent"></div>
+</div>
+</section>
+<!-- 2. Goal Name Input -->
+<section class="space-y-3">
+<label class="block text-sm font-bold text-on-surface-variant ml-1">목표 이름</label>
+<input class="w-full h-16 px-6 bg-surface-container-lowest rounded-md outline-none focus:ring-2 focus:ring-primary/20 transition-all text-lg font-medium placeholder:text-outline-variant border-none" placeholder="제주도 여행, 맛집 탐방" type="text"/>
+</section>
+<!-- 3. Emoji Picker Row -->
+<section class="space-y-3">
+<label class="block text-sm font-bold text-on-surface-variant ml-1">아이콘 선택</label>
+<div class="flex gap-3 overflow-x-auto pb-2 scrollbar-hide no-scrollbar">
+<button class="flex-shrink-0 w-12 h-12 flex items-center justify-center text-2xl bg-surface-container-lowest rounded-full hover:scale-110 transition-transform active:scale-90">🍽️</button>
+<button class="flex-shrink-0 w-12 h-12 flex items-center justify-center text-2xl bg-surface-container-lowest rounded-full hover:scale-110 transition-transform active:scale-90">🏖️</button>
+<button class="flex-shrink-0 w-12 h-12 flex items-center justify-center text-2xl bg-surface-container-lowest rounded-full hover:scale-110 transition-transform active:scale-90">🎁</button>
+<button class="flex-shrink-0 w-12 h-12 flex items-center justify-center text-2xl bg-surface-container-lowest rounded-full hover:scale-110 transition-transform active:scale-90">🎧</button>
+<button class="flex-shrink-0 w-12 h-12 flex items-center justify-center text-2xl bg-surface-container-lowest rounded-full hover:scale-110 transition-transform active:scale-90">👗</button>
+<button class="flex-shrink-0 w-12 h-12 flex items-center justify-center text-2xl bg-surface-container-lowest rounded-full hover:scale-110 transition-transform active:scale-90">🏠</button>
+<button class="flex-shrink-0 w-12 h-12 flex items-center justify-center text-2xl bg-surface-container-lowest rounded-full hover:scale-110 transition-transform active:scale-90">💍</button>
+<button class="flex-shrink-0 w-12 h-12 flex items-center justify-center text-2xl bg-surface-container-lowest rounded-full hover:scale-110 transition-transform active:scale-90">🎂</button>
+<button class="flex-shrink-0 w-12 h-12 flex items-center justify-center text-2xl bg-primary-container text-white rounded-full scale-110 shadow-lg">✈️</button>
+<button class="flex-shrink-0 w-12 h-12 flex items-center justify-center text-2xl bg-surface-container-lowest rounded-full hover:scale-110 transition-transform active:scale-90">🎮</button>
+</div>
+</section>
+<!-- 4. Amount Input -->
+<section class="space-y-4">
+<label class="block text-sm font-bold text-on-surface-variant ml-1">목표 금액</label>
+<div class="relative">
+<input class="w-full h-16 px-6 pr-16 bg-surface-container-lowest rounded-md text-right text-2xl font-extrabold text-primary outline-none border-none" type="text" value="0"/>
+<span class="absolute right-6 top-1/2 -translate-y-1/2 text-lg font-bold text-on-surface-variant">원</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<button class="px-5 py-2.5 bg-surface-container-high rounded-full text-sm font-semibold text-on-secondary-container hover:bg-primary/10 transition-colors">100,000</button>
+<button class="px-5 py-2.5 bg-surface-container-high rounded-full text-sm font-semibold text-on-secondary-container hover:bg-primary/10 transition-colors">300,000</button>
+<button class="px-5 py-2.5 bg-surface-container-high rounded-full text-sm font-semibold text-on-secondary-container hover:bg-primary/10 transition-colors">500,000</button>
+<button class="px-5 py-2.5 bg-surface-container-high rounded-full text-sm font-semibold text-on-secondary-container hover:bg-primary/10 transition-colors">1,000,000</button>
+</div>
+</section>
+<!-- 5. Date Picker -->
+<section class="space-y-4">
+<label class="block text-sm font-bold text-on-surface-variant ml-1">목표 날짜</label>
+<div class="relative">
+<input class="w-full h-16 px-6 bg-surface-container-lowest rounded-md text-lg font-semibold outline-none border-none" type="text" value="2024.12.31"/>
+<span class="material-symbols-outlined absolute right-6 top-1/2 -translate-y-1/2 text-primary" data-icon="calendar_today">calendar_today</span>
+</div>
+<div class="bg-primary/5 p-5 rounded-md flex items-center gap-4">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="auto_awesome" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div>
+<p class="text-primary font-bold">D-45일 남음</p>
+<p class="text-sm text-on-surface-variant">하루 약 6,667원씩 모으면 달성!</p>
+</div>
+</div>
+</section>
+<!-- 6. Priority Selector -->
+<section class="space-y-3">
+<label class="block text-sm font-bold text-on-surface-variant ml-1">우선순위</label>
+<div class="grid grid-cols-3 gap-3">
+<button class="h-20 bg-surface-container-lowest rounded-md flex flex-col items-center justify-center gap-1 hover:bg-primary/5 transition-colors">
+<span class="text-xl">🔥</span>
+<span class="text-sm font-bold text-on-surface-variant">높음</span>
+</button>
+<button class="h-20 bg-primary-container text-white rounded-md flex flex-col items-center justify-center gap-1 shadow-lg shadow-primary/20">
+<span class="text-xl">⭐</span>
+<span class="text-sm font-bold">보통</span>
+</button>
+<button class="h-20 bg-surface-container-lowest rounded-md flex flex-col items-center justify-center gap-1 hover:bg-primary/5 transition-colors">
+<span class="text-xl">💤</span>
+<span class="text-sm font-bold text-on-surface-variant">낮음</span>
+</button>
+</div>
+</section>
+<!-- 7. Description Textarea -->
+<section class="space-y-3">
+<label class="block text-sm font-bold text-on-surface-variant ml-1">목표 설명 (선택)</label>
+<textarea class="w-full min-h-[120px] p-6 bg-surface-container-lowest rounded-md outline-none border-none resize-none focus:ring-2 focus:ring-primary/20 transition-all" placeholder="함께 이루고 싶은 꿈이나 구체적인 계획을 적어주세요."></textarea>
+</section>
+</main>
+<!-- Bottom Button Container -->
+<div class="fixed bottom-0 left-0 w-full px-6 pb-10 pt-4 bg-gradient-to-t from-surface via-surface to-transparent">
+<button class="w-full py-5 bg-gradient-to-r from-primary to-primary-container text-white font-bold text-lg rounded-full shadow-xl shadow-primary/25 active:scale-95 duration-300 flex items-center justify-center gap-2">
+            목표 만들기 🎯
+        </button>
+</div>
+<!-- Hidden BottomNavBar (Suppressed for transactional screen as per rule) -->
+</body></html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#f1f1ef",
+                    "surface-bright": "#f9f9f7",
+                    "on-primary": "#ffffff",
+                    "surface-dim": "#dadad8",
+                    "on-secondary-fixed-variant": "#3b4951",
+                    "surface-tint": "#0060ac",
+                    "inverse-primary": "#a4c9ff",
+                    "surface-variant": "#e2e3e1",
+                    "on-primary-fixed": "#001c39",
+                    "primary-fixed": "#d4e3ff",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed-variant": "#41484a",
+                    "secondary": "#526069",
+                    "surface-container-high": "#e8e8e6",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-highest": "#e2e3e1",
+                    "outline": "#717783",
+                    "secondary-fixed": "#d6e5ef",
+                    "background": "#f9f9f7",
+                    "on-primary-fixed-variant": "#004883",
+                    "secondary-fixed-dim": "#bac9d3",
+                    "primary": "#005da7",
+                    "tertiary-container": "#6f7678",
+                    "on-tertiary-fixed": "#161d1f",
+                    "on-surface": "#1a1c1b",
+                    "secondary-container": "#d3e2ed",
+                    "on-tertiary": "#ffffff",
+                    "tertiary": "#565d5f",
+                    "on-secondary-fixed": "#0f1d25",
+                    "primary-fixed-dim": "#a4c9ff",
+                    "error-container": "#ffdad6",
+                    "primary-container": "#2976c7",
+                    "surface-container": "#eeeeec",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed-dim": "#c1c8ca",
+                    "on-error-container": "#93000a",
+                    "outline-variant": "#c1c7d3",
+                    "on-tertiary-container": "#f9fdff",
+                    "inverse-surface": "#2f3130",
+                    "on-background": "#1a1c1b",
+                    "surface-container-low": "#f4f4f2",
+                    "surface": "#f9f9f7",
+                    "on-surface-variant": "#414751",
+                    "on-primary-container": "#fdfcff",
+                    "tertiary-fixed": "#dde4e6",
+                    "on-secondary-container": "#56656e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col items-center">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full max-w-md bg-[#f9f9f7] dark:bg-slate-950 z-50 flex items-center justify-between px-6 py-4">
+<button class="p-2 -ml-2 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors rounded-full active:scale-95 duration-150 ease-in-out">
+<span class="material-symbols-outlined text-slate-400">close</span>
+</button>
+<h1 class="font-['Plus_Jakarta_Sans'] font-bold text-lg tracking-tight text-on-surface">새 목표 만들기</h1>
+<div class="w-10"></div> <!-- Spacer for symmetry -->
+<div class="absolute bottom-0 left-0 bg-[#f4f4f2] dark:bg-slate-900 h-px w-full opacity-50"></div>
+</header>
+<!-- Main Content Container -->
+<main class="w-full max-w-md pt-20 pb-32 px-6 overflow-y-auto hide-scrollbar">
+<form class="space-y-10">
+<!-- Photo Placeholder -->
+<section class="flex flex-col items-center">
+<div class="w-full h-48 border-2 border-dashed border-outline-variant bg-surface-container-low rounded-lg flex flex-col items-center justify-center gap-2 group cursor-pointer hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-outline text-3xl">photo_camera</span>
+<span class="text-on-surface-variant font-semibold text-sm">사진 추가 (선택)</span>
+</div>
+</section>
+<!-- Goal Name -->
+<section class="space-y-3">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant px-1">목표 이름</label>
+<input class="w-full h-16 px-6 bg-surface-container-highest border-none rounded-lg focus:ring-2 focus:ring-primary/20 text-on-surface placeholder:text-outline/60 text-base font-medium" placeholder="e.g., '제주도 여행', '맛집 탐방'" type="text"/>
+</section>
+<!-- Icon Selection -->
+<section class="space-y-4">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant px-1">아이콘 선택</label>
+<div class="flex flex-wrap gap-4">
+<!-- Emojis as Material Icons were requested as circular emoji buttons -->
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-lowest shadow-sm hover:scale-110 transition-transform text-xl" type="button">🍽️</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-lowest shadow-sm hover:scale-110 transition-transform text-xl" type="button">🏖️</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-lowest shadow-sm hover:scale-110 transition-transform text-xl" type="button">🎁</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-lowest shadow-sm hover:scale-110 transition-transform text-xl border-2 border-primary" type="button">🎧</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-lowest shadow-sm hover:scale-110 transition-transform text-xl" type="button">👗</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-lowest shadow-sm hover:scale-110 transition-transform text-xl" type="button">🏠</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-lowest shadow-sm hover:scale-110 transition-transform text-xl" type="button">💍</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-lowest shadow-sm hover:scale-110 transition-transform text-xl" type="button">🎂</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-lowest shadow-sm hover:scale-110 transition-transform text-xl" type="button">✈️</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-lowest shadow-sm hover:scale-110 transition-transform text-xl" type="button">🎮</button>
+</div>
+</section>
+<!-- Amount -->
+<section class="space-y-4">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant px-1">목표 금액</label>
+<div class="flex items-baseline justify-end space-x-2 py-4 border-b border-surface-container-highest">
+<span class="text-4xl font-extrabold text-on-surface tracking-tight">0</span>
+<span class="text-2xl font-bold text-on-surface-variant">원</span>
+</div>
+<div class="flex flex-wrap gap-2 pt-2">
+<button class="px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant text-sm font-semibold hover:bg-secondary-container transition-colors" type="button">100,000</button>
+<button class="px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant text-sm font-semibold hover:bg-secondary-container transition-colors" type="button">300,000</button>
+<button class="px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant text-sm font-semibold hover:bg-secondary-container transition-colors" type="button">500,000</button>
+<button class="px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant text-sm font-semibold hover:bg-secondary-container transition-colors" type="button">1,000,000</button>
+</div>
+</section>
+<!-- Date & D-day -->
+<section class="space-y-4">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant px-1">목표 날짜</label>
+<div class="flex items-center justify-between px-6 h-16 bg-surface-container-highest rounded-lg cursor-pointer">
+<span class="text-on-surface font-semibold">2024.12.31</span>
+<span class="material-symbols-outlined text-primary">calendar_today</span>
+</div>
+<!-- Info Card -->
+<div class="p-5 bg-primary/5 rounded-lg border border-primary/10 flex items-start space-x-4">
+<div class="bg-primary text-white p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<div>
+<div class="text-primary font-bold text-sm">D-45일 남음</div>
+<div class="text-on-surface-variant text-sm mt-0.5">하루 약 <span class="font-bold text-on-surface">22,200원</span>씩 모으면 달성!</div>
+</div>
+</div>
+</section>
+<!-- Priority -->
+<section class="space-y-3">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant px-1">우선순위</label>
+<div class="grid grid-cols-3 gap-3">
+<button class="flex flex-col items-center justify-center py-4 bg-surface-container-lowest rounded-lg border-2 border-transparent hover:bg-surface-container-low transition-all" type="button">
+<span class="text-xl mb-1">🔥</span>
+<span class="text-sm font-bold text-on-surface-variant">높음</span>
+</button>
+<button class="flex flex-col items-center justify-center py-4 bg-surface-container-lowest rounded-lg border-2 border-primary shadow-[0px_12px_24px_rgba(0,96,172,0.08)] scale-[1.02] transition-all" type="button">
+<span class="text-xl mb-1">⭐</span>
+<span class="text-sm font-bold text-primary">보통</span>
+</button>
+<button class="flex flex-col items-center justify-center py-4 bg-surface-container-lowest rounded-lg border-2 border-transparent hover:bg-surface-container-low transition-all" type="button">
+<span class="text-xl mb-1">💤</span>
+<span class="text-sm font-bold text-on-surface-variant">낮음</span>
+</button>
+</div>
+</section>
+<!-- Memo -->
+<section class="space-y-3">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant px-1">메모</label>
+<textarea class="w-full p-6 bg-surface-container-highest border-none rounded-lg focus:ring-2 focus:ring-primary/20 text-on-surface placeholder:text-outline/60 text-base font-medium resize-none" placeholder="함께 이루고 싶은 꿈이나 구체적인 계획을 적어주세요." rows="4"></textarea>
+</section>
+</form>
+</main>
+<!-- Bottom Button Container -->
+<footer class="fixed bottom-0 w-full max-w-md bg-surface-bright/90 backdrop-blur-md px-6 py-8 z-50">
+<button class="w-full h-16 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-full text-lg font-bold shadow-[0px_24px_48px_rgba(0,96,172,0.2)] active:scale-95 transition-transform">
+            목표 만들기 🎯
+        </button>
+</footer>
+</body></html>

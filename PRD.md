@@ -1,8 +1,8 @@
 # 커플 가계부 앱 — PRD (Product Requirements Document)
 
-**프로젝트명:** 커플 가계부 (가칭)
+**프로젝트명:** 우리 가계부
 **작성일:** 2026-04-06
-**버전:** v0.1
+**버전:** v0.2 (위시 저금통 추가)
 
 ---
 
@@ -15,6 +15,7 @@
 - **커플 시너지**: 각자 기록 → 합산 대시보드로 전체 재정 파악
 - **예산 관리**: 월별 예산 설정 & 초과 알림
 - **캘린더 뷰**: 날짜별 지출 흐름을 직관적으로 확인
+- **위시 저금통**: 커플이 함께 목표 금액을 모아가는 저금통
 
 ---
 
@@ -34,6 +35,7 @@
 | 4 | **대시보드 확인** | 월별 카테고리별 지출, 개인 vs 합산 비교, 예산 잔여 현황 |
 | 5 | **커플 연결** | 초대코드로 파트너 연결 → 이후 서로의 지출 실시간 공유 |
 | 6 | **예산 알림** | 월 예산 80% 도달 시 경고, 100% 초과 시 알림 |
+| 7 | **위시 저금통** | 목표 설정 → 수동 저금 → 달성 추적 |
 
 ---
 
@@ -100,10 +102,42 @@
 | 카테고리별 파이차트 | 비율 시각화 |
 | 일별 지출 바차트 | 일별 추이 그래프 |
 | 예산 프로그레스바 | 월 예산 대비 소진율 |
+| 위시 저금통 위젯 | 상위 2개 목표 미니 카드 + 진행률 |
 | 전월 대비 | 지난달 동일 시점 대비 증감 |
 | Top 3 카테고리 | 가장 많이 쓴 카테고리 순위 |
 
-### 3.6 예산 관리
+### 3.6 위시 저금통 (Savings Goals)
+
+커플이 함께 목표 금액을 모아가는 저금통 기능. 수동으로 금액을 넣는 저금통 감각.
+
+**목표 설정:**
+
+| 필드 | 타입 | 필수 | 비고 |
+|------|------|------|------|
+| 목표 이름 | text | ✅ | e.g., "오마카세 데이트" |
+| 이모지 | emoji | ✅ | 기본 프리셋 + 직접 선택 |
+| 목표 금액 | number | ✅ | 원 단위 |
+| 목표 날짜 | date | ❌ | D-day 자동 계산 |
+| 우선순위 | select | ✅ | 🔥높음 / ⭐보통 / 💤낮음 |
+| 설명 | text | ❌ | 자유 메모 |
+| 사진 | image | ❌ | 목표 이미지 |
+
+**저금하기 (수동 입금):**
+- 금액 입력 + 퀵 프리셋 (5천/1만/3만/5만)
+- 메모 첨부 가능 (e.g., "커피 참았다 ☕")
+- 누가 넣었는지 자동 기록
+- 유저별 기여 금액 & 비율 표시
+
+**목표 상태:**
+- active → 진행 중
+- completed → 달성 (current_amount >= target_amount 시 자동 전환)
+- cancelled → 취소
+
+**달성 속도 안내:**
+- 남은 금액 / 남은 일수 = 하루 목표액 자동 계산
+- 달성 페이스에 따라 격려 메시지 표시
+
+### 3.7 예산 관리
 
 | 항목 | 스펙 |
 |------|------|
@@ -112,7 +146,7 @@
 | 알림 기준 | 80% 도달 시 경고, 100% 초과 시 알림 |
 | 알림 방식 | 앱 내 알림 (푸시는 v2) |
 
-### 3.7 사진 & 첨부
+### 3.8 사진 & 첨부
 
 - 지출 건별 최대 3장 이미지 첨부
 - 촬영 or 갤러리 선택
@@ -170,7 +204,7 @@ CREATE TABLE users (
 -- 커플
 CREATE TABLE couples (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  invite_code TEXT UNIQUE NOT NULL,       -- 6자리 초대코드
+  invite_code TEXT UNIQUE NOT NULL,
   user_a UUID REFERENCES users(id),
   user_b UUID REFERENCES users(id),
   created_at TIMESTAMPTZ DEFAULT now()
@@ -179,10 +213,10 @@ CREATE TABLE couples (
 -- 카테고리
 CREATE TABLE categories (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  couple_id UUID REFERENCES couples(id),  -- NULL이면 기본 프리셋
+  couple_id UUID REFERENCES couples(id),
   name TEXT NOT NULL,
-  icon TEXT NOT NULL,                     -- 이모지
-  keywords TEXT[],                        -- OCR 매칭 키워드
+  icon TEXT NOT NULL,
+  keywords TEXT[],
   sort_order INT DEFAULT 0,
   is_default BOOLEAN DEFAULT false,
   created_at TIMESTAMPTZ DEFAULT now()
@@ -194,7 +228,7 @@ CREATE TABLE expenses (
   user_id UUID REFERENCES users(id) NOT NULL,
   couple_id UUID REFERENCES couples(id) NOT NULL,
   category_id UUID REFERENCES categories(id) NOT NULL,
-  amount INT NOT NULL,                    -- 원 단위
+  amount INT NOT NULL,
   memo TEXT,
   place TEXT,
   expense_date DATE NOT NULL,
@@ -206,8 +240,8 @@ CREATE TABLE expenses (
 CREATE TABLE expense_images (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   expense_id UUID REFERENCES expenses(id) ON DELETE CASCADE,
-  storage_path TEXT NOT NULL,             -- Supabase Storage 경로
-  is_receipt BOOLEAN DEFAULT false,       -- 영수증 여부
+  storage_path TEXT NOT NULL,
+  is_receipt BOOLEAN DEFAULT false,
   created_at TIMESTAMPTZ DEFAULT now()
 );
 
@@ -215,10 +249,42 @@ CREATE TABLE expense_images (
 CREATE TABLE budgets (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   couple_id UUID REFERENCES couples(id) NOT NULL,
-  year_month TEXT NOT NULL,               -- '2026-04' 형식
-  amount INT NOT NULL,                    -- 월 예산 금액
+  year_month TEXT NOT NULL,
+  amount INT NOT NULL,
   created_at TIMESTAMPTZ DEFAULT now(),
   UNIQUE(couple_id, year_month)
+);
+
+-- 위시 저금통 목표
+CREATE TABLE savings_goals (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  couple_id UUID REFERENCES couples(id) NOT NULL,
+  created_by UUID REFERENCES users(id) NOT NULL,
+  title TEXT NOT NULL,
+  emoji TEXT NOT NULL DEFAULT '🎯',
+  target_amount INT NOT NULL,
+  current_amount INT NOT NULL DEFAULT 0,
+  target_date DATE,
+  priority TEXT NOT NULL DEFAULT 'medium'
+    CHECK (priority IN ('high', 'medium', 'low')),
+  status TEXT NOT NULL DEFAULT 'active'
+    CHECK (status IN ('active', 'completed', 'cancelled')),
+  description TEXT,
+  image_path TEXT,
+  completed_at TIMESTAMPTZ,
+  created_at TIMESTAMPTZ DEFAULT now(),
+  updated_at TIMESTAMPTZ DEFAULT now()
+);
+
+-- 저금 기록
+CREATE TABLE savings_deposits (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  goal_id UUID REFERENCES savings_goals(id) ON DELETE CASCADE,
+  user_id UUID REFERENCES users(id) NOT NULL,
+  amount INT NOT NULL CHECK (amount > 0),
+  memo TEXT,
+  deposited_at TIMESTAMPTZ DEFAULT now(),
+  created_at TIMESTAMPTZ DEFAULT now()
 );
 ```
 
@@ -240,7 +306,6 @@ Supabase Edge Function
     │
     ├─ 카테고리 매칭
     │   └─ 키워드 테이블 기반 룰 매칭
-    │       (스타벅스 → 카페, 이마트 → 쇼핑 등)
     │
     └─ 결과 반환
         { amount, date, category_id, place, confidence }
@@ -257,7 +322,7 @@ User B: 회원가입 → 초대코드 입력 → couples.user_b에 등록
                                             │
                                   양쪽 users.couple_id 업데이트
                                             │
-                                    Realtime 구독 시작 ✅
+                                    Realtime 구독 시작
 ```
 
 ### 4.5 Supabase RLS (Row Level Security)
@@ -282,6 +347,24 @@ CREATE POLICY "couple_budgets" ON budgets
       SELECT couple_id FROM users WHERE id = auth.uid()
     )
   );
+
+-- 저금통: 같은 커플만 CRUD
+CREATE POLICY "couple_savings_goals" ON savings_goals
+  USING (
+    couple_id IN (
+      SELECT couple_id FROM users WHERE id = auth.uid()
+    )
+  );
+
+-- 저금 기록: 같은 커플 goal에만 입금, 본인 것만 삭제
+CREATE POLICY "couple_savings_deposits" ON savings_deposits
+  USING (
+    goal_id IN (
+      SELECT id FROM savings_goals WHERE couple_id IN (
+        SELECT couple_id FROM users WHERE id = auth.uid()
+      )
+    )
+  );
 ```
 
 ---
@@ -292,30 +375,36 @@ CREATE POLICY "couple_budgets" ON budgets
 couple-ledger/
 ├── apps/
 │   ├── mobile/                  # Expo (React Native)
-│   │   ├── app/                 # Expo Router 파일 기반 라우팅
+│   │   ├── app/
 │   │   │   ├── (auth)/          # 로그인 화면
 │   │   │   ├── (tabs)/          # 메인 탭 네비게이션
 │   │   │   │   ├── calendar.tsx
 │   │   │   │   ├── dashboard.tsx
 │   │   │   │   ├── add.tsx      # 지출 입력
+│   │   │   │   ├── savings.tsx  # 위시 저금통
 │   │   │   │   └── settings.tsx
+│   │   │   ├── savings/
+│   │   │   │   ├── [id].tsx     # 목표 상세
+│   │   │   │   └── create.tsx   # 새 목표 만들기
 │   │   │   └── _layout.tsx
 │   │   ├── components/
+│   │   │   └── savings/         # 저금통 컴포넌트
 │   │   ├── hooks/
 │   │   └── utils/
 │   │
 │   └── web/                     # Next.js
 │       ├── app/
-│       │   ├── page.tsx         # 랜딩/로그인
+│       │   ├── page.tsx
 │       │   ├── dashboard/
 │       │   ├── calendar/
+│       │   ├── savings/
 │       │   └── settings/
 │       ├── components/
 │       └── utils/
 │
 ├── packages/
 │   └── shared/                  # 공유 로직
-│       ├── supabase/            # Supabase 클라이언트 & 타입
+│       ├── supabase/            # Supabase 클라이언트 & 쿼리
 │       ├── types/               # TypeScript 타입 정의
 │       ├── utils/               # 공통 유틸 (날짜, 금액 포맷 등)
 │       └── ocr/                 # OCR 파싱 로직
@@ -323,13 +412,23 @@ couple-ledger/
 └── supabase/
     ├── migrations/              # DB 마이그레이션
     ├── functions/               # Edge Functions
-    │   └── ocr-process/         # OCR 처리 함수
+    │   └── ocr-process/
     └── seed.sql                 # 기본 카테고리 시드 데이터
 ```
 
 ---
 
-## 6. 비용 산정 (월 기준, 커플 1팀)
+## 6. 탭 네비게이션 (5탭)
+
+```
+캘린더 | 대시보드 | + (지출 입력) | 저금통 | 설정
+```
+
+- 예산 관리는 설정 내부 또는 대시보드 위젯으로 이동
+
+---
+
+## 7. 비용 산정 (월 기준, 커플 1팀)
 
 | 항목 | 무료 한도 | 예상 사용량 | 예상 비용 |
 |------|----------|-----------|----------|
@@ -340,11 +439,11 @@ couple-ledger/
 | 카카오 로그인 | 무료 | - | $0 |
 | **합계** | | | **$0/월** |
 
-> 사용자 확대 시 Supabase Pro ($25/월) + Vercel Pro ($20/월) 전환 필요. 구독 모델로 충당 계획.
+> 사용자 확대 시 Supabase Pro ($25/월) + Vercel Pro ($20/월) 전환 필요.
 
 ---
 
-## 7. 개발 로드맵
+## 8. 개발 로드맵
 
 ### Phase 1 — MVP (4~6주)
 - [ ] Supabase 셋업 (DB, Auth, Storage)
@@ -353,6 +452,7 @@ couple-ledger/
 - [ ] 수동 지출 입력 CRUD
 - [ ] 캘린더 뷰 (월간)
 - [ ] 기본 대시보드 (월간 총액, 카테고리 파이차트)
+- [ ] 위시 저금통 MVP (목표 생성, 저금하기, 목록/상세)
 - [ ] Expo 앱 기본 빌드
 
 ### Phase 2 — 스마트 기능 (3~4주)
@@ -368,20 +468,56 @@ couple-ledger/
 - [ ] 전월 대비 분석 리포트
 - [ ] Claude API 연동 (스마트 카테고리 분류 업그레이드)
 - [ ] 구독 모델 도입 (사용자 확대 시)
-- [ ] 네이버 지도 연동 (장소 자동완성)
 
 ---
 
-## 8. 주요 기술 결정 사항 요약
+## 9. 디자인 시스템
+
+### Stitch 프로젝트
+- **프로젝트 ID**: 1636127099807098622
+- **디자인 테마**: Soft Minimal, "The Intimate Curator"
+
+### 컬러 팔레트
+- **Primary**: Soft coral (#FF6B6B) → Blue variant (#4A90D9)
+- **Secondary**: Warm peach (#FFEAA7)
+- **Tertiary**: Sky blue (#74B9FF)
+- **Background**: Cool white (#F0F4F8 / #F1FBFF)
+- **Success**: #00B894
+- **Warning**: #FDCB6E
+- **Danger**: #E17055
+- **Couple colors**: User A = Blue (#4A90D9), User B = Coral (#FF6B6B)
+
+### 타이포그래피
+- Display/Headline: Plus Jakarta Sans
+- Body/Label: Be Vietnam Pro (Korean: Pretendard)
+
+### 화면 목록 (Stitch 생성 완료)
+1. 메인 캘린더 (+ Blue)
+2. 지출 입력 (+ Blue)
+3. 대시보드 (+ Blue, + 최적화)
+4. 로그인 & 온보딩 (+ Blue)
+5. 커플 연결 (+ Blue)
+6. 예산 관리 (+ Blue)
+7. 설정 (+ Blue)
+8. 위시 저금통 목록
+9. 목표 상세 (오마카세 데이트)
+10. 새 목표 만들기 (+ Blue, + 상세 폼)
+11. 대시보드 + 저금통 위젯 (+ Blue, + v2)
+12. 대시보드 레이아웃 최적화 (Coral/Blue)
+
+### HTML 파일: `design/screens/` (27개)
+
+---
+
+## 10. 주요 기술 결정 사항
 
 | 결정 사항 | 선택 | 이유 |
 |----------|------|------|
-| 프론트엔드 (앱) | React Native + Expo | iOS/Android 동시 배포, Expo EAS로 빌드 간소화 |
-| 프론트엔드 (웹) | Next.js | Vercel 배포, SSR/SEO, 반응형 대시보드 |
-| 백엔드 | Supabase | Auth + DB + Storage + Realtime 올인원, Free tier 충분 |
-| 호스팅 | Vercel (웹) + Expo EAS (앱) | 무료 티어 활용 |
+| 프론트엔드 (앱) | React Native + Expo | iOS/Android 동시 배포, Expo EAS |
+| 프론트엔드 (웹) | Next.js | Vercel 배포, SSR/SEO |
+| 백엔드 | Supabase | Auth + DB + Storage + Realtime 올인원 |
 | 인증 | 카카오 OAuth via Supabase Auth | 한국 사용자 접근성 |
 | OCR | Google Vision API | 월 1,000건 무료, 한국어 지원 |
-| 카테고리 분류 | 키워드 룰 기반 (Phase 1) → Claude API (Phase 3) | 초기 $0 운영, 점진적 AI 고도화 |
+| 카테고리 분류 | 키워드 룰 기반 (Phase 1) → Claude API (Phase 3) | 점진적 AI 고도화 |
 | DB | PostgreSQL (Supabase) | RLS, Realtime, 타입 안전성 |
 | 모노레포 | apps/mobile + apps/web + packages/shared | 코드 재사용 극대화 |

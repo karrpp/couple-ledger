@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-highest": "#d9e4e9",
+                      "surface-bright": "#f1fbff",
+                      "surface": "#f1fbff",
+                      "surface-tint": "#ae2f34",
+                      "background": "#f1fbff",
+                      "tertiary-fixed-dim": "#9ccaff",
+                      "on-error-container": "#93000a",
+                      "on-error": "#ffffff",
+                      "primary-fixed-dim": "#ffb3b0",
+                      "on-secondary-fixed": "#221b00",
+                      "primary-fixed": "#ffdad8",
+                      "on-primary-fixed-variant": "#8c1520",
+                      "tertiary": "#0062a0",
+                      "on-secondary-container": "#72632e",
+                      "error-container": "#ffdad6",
+                      "on-tertiary": "#ffffff",
+                      "surface-dim": "#d1dce0",
+                      "inverse-surface": "#283236",
+                      "primary": "#ae2f34",
+                      "on-primary-container": "#6d0010",
+                      "error": "#ba1a1a",
+                      "secondary-container": "#f6e29f",
+                      "on-secondary": "#ffffff",
+                      "surface-container": "#e4f0f4",
+                      "primary-container": "#ff6b6b",
+                      "outline-variant": "#e0bfbd",
+                      "surface-container-low": "#eaf5fa",
+                      "inverse-on-surface": "#e7f3f7",
+                      "on-secondary": "#ffffff",
+                      "tertiary-container": "#59a0e4",
+                      "on-tertiary-fixed": "#001d35",
+                      "secondary-fixed-dim": "#d9c686",
+                      "on-secondary-fixed-variant": "#534613",
+                      "secondary": "#6c5d28",
+                      "on-surface-variant": "#584140",
+                      "secondary-fixed": "#f6e29f",
+                      "outline": "#8c706f",
+                      "on-primary-fixed": "#410006",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-container": "#00355b",
+                      "tertiary-fixed": "#d0e4ff",
+                      "on-tertiary-fixed-variant": "#00497a",
+                      "on-surface": "#131d21",
+                      "on-background": "#131d21",
+                      "inverse-primary": "#ffb3b0",
+                      "surface-container-high": "#dfeaef",
+                      "surface-variant": "#d9e4e9"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Plus Jakarta Sans"],
+                      "body": ["Be Vietnam Pro"],
+                      "label": ["Be Vietnam Pro"]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface min-h-screen flex flex-col items-center">
+<div class="w-full max-w-md min-h-screen bg-surface flex flex-col pb-10">
+<!-- Header Section -->
+<header class="flex justify-between items-center px-6 py-5 sticky top-0 bg-surface/80 backdrop-blur-md z-30">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-all active:scale-90">
+<span class="material-symbols-outlined text-on-surface text-2xl">close</span>
+</button>
+<h1 class="text-xl font-headline font-bold text-on-surface tracking-tight">지출 추가</h1>
+<div class="w-10"></div> <!-- Spacer for centering -->
+</header>
+<!-- Mode Toggle Tabs -->
+<div class="px-6 mb-8">
+<div class="flex p-1.5 bg-surface-container rounded-full w-full">
+<button class="flex-1 py-3 text-sm font-semibold rounded-full bg-surface-container-lowest text-primary shadow-sm transition-all">직접 입력</button>
+<button class="flex-1 py-3 text-sm font-semibold rounded-full text-on-surface-variant hover:text-primary transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">photo_camera</span>
+                    영수증 스캔
+                </button>
+</div>
+</div>
+<!-- Main Form Container -->
+<main class="flex-1 px-6 space-y-10">
+<!-- Amount Input -->
+<section class="space-y-2 text-center">
+<div class="inline-flex items-baseline gap-1 animate-pulse-subtle">
+<input autofocus="" class="w-full text-center bg-transparent border-none focus:ring-0 text-6xl font-headline font-extrabold text-on-surface p-0 tracking-tighter" type="text" value="0"/>
+<span class="text-2xl font-bold text-on-surface-variant">원</span>
+</div>
+</section>
+<!-- Input Fields Group -->
+<div class="space-y-6">
+<!-- Date Picker -->
+<div class="flex items-center gap-4 p-4 bg-surface-container-lowest rounded-md shadow-[0_12px_32px_-4px_rgba(174,47,52,0.08)] cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-primary text-xl">calendar_today</span>
+<span class="flex-1 text-on-surface font-medium">2026년 4월 6일 (일)</span>
+<span class="material-symbols-outlined text-on-surface-variant text-lg">chevron_right</span>
+</div>
+<!-- Category Selector -->
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<label class="text-[11px] font-bold uppercase tracking-wider text-on-surface-variant px-1">카테고리</label>
+</div>
+<div class="flex gap-3 overflow-x-auto no-scrollbar -mx-6 px-6 py-1">
+<button class="flex-shrink-0 flex flex-col items-center gap-2 group">
+<div class="w-16 h-16 rounded-full bg-primary-container text-white flex items-center justify-center text-2xl shadow-lg shadow-primary-container/20 ring-4 ring-primary-container/20">🍽️</div>
+<span class="text-xs font-bold text-primary">식비</span>
+</button>
+<button class="flex-shrink-0 flex flex-col items-center gap-2 group">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center text-2xl group-hover:bg-surface-container-high transition-colors">☕</div>
+<span class="text-xs font-medium text-on-surface-variant">카페</span>
+</button>
+<button class="flex-shrink-0 flex flex-col items-center gap-2 group">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center text-2xl group-hover:bg-surface-container-high transition-colors">🚌</div>
+<span class="text-xs font-medium text-on-surface-variant">교통</span>
+</button>
+<button class="flex-shrink-0 flex flex-col items-center gap-2 group">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center text-2xl group-hover:bg-surface-container-high transition-colors">🛍️</div>
+<span class="text-xs font-medium text-on-surface-variant">쇼핑</span>
+</button>
+<button class="flex-shrink-0 flex flex-col items-center gap-2 group">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center text-2xl group-hover:bg-surface-container-high transition-colors">🎬</div>
+<span class="text-xs font-medium text-on-surface-variant">문화</span>
+</button>
+<button class="flex-shrink-0 flex flex-col items-center gap-2 group">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center text-2xl group-hover:bg-surface-container-high transition-colors">➕</div>
+<span class="text-xs font-medium text-on-surface-variant">추가</span>
+</button>
+</div>
+</div>
+<!-- Memo & Place -->
+<div class="space-y-4">
+<div class="relative group">
+<input class="w-full bg-surface-container-highest border-none rounded-md px-5 py-4 text-on-surface placeholder:text-on-surface-variant/50 focus:ring-2 focus:ring-primary-fixed transition-all outline-none" placeholder="메모 입력 (선택)" type="text"/>
+</div>
+<div class="relative group">
+<div class="absolute left-5 top-1/2 -translate-y-1/2">
+<span class="material-symbols-outlined text-on-surface-variant text-xl">location_on</span>
+</div>
+<input class="w-full bg-surface-container-highest border-none rounded-md pl-12 pr-5 py-4 text-on-surface placeholder:text-on-surface-variant/50 focus:ring-2 focus:ring-primary-fixed transition-all outline-none" placeholder="장소 입력 (선택)" type="text"/>
+</div>
+</div>
+<!-- Photo Upload Section -->
+<div class="space-y-3">
+<label class="text-[11px] font-bold uppercase tracking-wider text-on-surface-variant px-1">사진 추가</label>
+<div class="grid grid-cols-4 gap-3">
+<button class="aspect-square rounded-md bg-surface-container border-2 border-dashed border-outline-variant flex flex-col items-center justify-center gap-1 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-on-surface-variant">add_a_photo</span>
+<span class="text-[10px] font-bold text-on-surface-variant">0/3</span>
+</button>
+<!-- Thumbnails would appear here -->
+</div>
+</div>
+</div>
+<!-- Contextual Couples Indicator -->
+<div class="pt-4 flex items-center justify-center gap-3">
+<div class="flex -space-x-3">
+<img class="w-10 h-10 rounded-full ring-2 ring-surface object-cover" data-alt="close up portrait of a young woman with a warm smile in natural outdoor lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiVsmg2k6CsTeJ99Mf42HNILm_BeBojuf5qRtNrfrwm1xY-E8e8R10nZd3UmExjc9cffexLCxp0aC9w6StqqaIzmZhfLGMXhiygYgPdOHS2RXfvql4xPd1L1qLMdN-_8duG2TB4EKzPslwJwzxND3qCjLsFe4kaEbj2iJyTgIbuHqyIB0ub1v10YLA45z6EcUQ3xYm8U8LlqdoDH8q_jei98IUzRVhzg4oRL_43I_hDnANADDiUJNAh-FoZNjsqrRev3FjAqKtl-I"/>
+<img class="w-10 h-10 rounded-full ring-2 ring-surface object-cover" data-alt="close up portrait of a young man looking friendly and relaxed against a soft bokeh background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNzd4jwTBHjGpYeUdJgqatQ8RyJgrkMNabrwh_UNAiJXnxACoVgIv6JI8P79DrxbFQ7_Xq1XyVQtASewMFAYKN1cceeLPTwhqEmK6jXygkdCy2uUbW_mfWnzUS9QsEwUa9qpRddpdXp49EoOtQTC8WYp0VdkfFq4_Vn8sb8NqtQRwd-FIfh491dlZM3d7R3kpK9ZTKS_GjPPJE45DsAR1Syic0qm77TwxKvHa2rky-zN7kMbezXmRJYK_bT7CiQfSx6RzFmUXuYk8"/>
+</div>
+<p class="text-xs font-medium text-on-surface-variant">지은님과 민수님이 함께 기록합니다</p>
+</div>
+</main>
+<!-- Bottom Action -->
+<footer class="p-6 sticky bottom-0 bg-gradient-to-t from-surface via-surface to-transparent pt-10">
+<button class="w-full py-5 bg-gradient-to-br from-primary to-primary-container text-white font-bold rounded-full text-lg shadow-[0_12px_32px_-4px_rgba(174,47,52,0.3)] hover:brightness-110 active:scale-95 transition-all">
+                저장
+            </button>
+</footer>
+</div>
+<!-- Hidden OCR Result State (For reference/implementation layering) -->
+<!-- This overlay would show after camera capture -->
+<div class="fixed inset-0 z-50 bg-black/60 flex items-end justify-center hidden">
+<div class="bg-surface w-full max-w-md rounded-t-xl p-6 space-y-6 animate-slide-up">
+<div class="w-12 h-1.5 bg-surface-container-highest rounded-full mx-auto mb-2"></div>
+<div class="flex items-start gap-4">
+<div class="w-24 h-24 rounded-md bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover grayscale opacity-50" data-alt="close up of a restaurant receipt with soft focus on paper texture and black printed ink text" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4KVdq6pPoTrwUZlVFOaQ6_9vujFPkb5sPEBy8ds04RRCqZztIENkgR-GWa-EwhOepdB9Mrivtyt13vDMy8jAVuhuvo3JDvxm5CkmXRE7evnK19X16OuhvzYkGMlQvkBDvac4oQctfuIVGdpT5wshE3z4RI_avlKPli3bPiii6g_C_xQLjsratYNzXueUp7Vn3UOGEpgdhh8sr8fgfhS8EPPd4sopapH36pP2FEvm1eoyluYu3AfRuypvMYc1Bn_309Su76m5bUs8"/>
+</div>
+<div class="flex-1">
+<h3 class="font-headline font-bold text-lg mb-1">영수증 분석 완료! ✨</h3>
+<p class="text-sm text-on-surface-variant">내용이 정확한지 확인해주세요.</p>
+</div>
+</div>
+<div class="space-y-3">
+<div class="p-4 bg-primary-fixed/20 rounded-md border border-primary-fixed-dim/30">
+<div class="flex justify-between items-center mb-1">
+<span class="text-xs font-bold text-primary uppercase">금액</span>
+<span class="text-[10px] bg-secondary-container text-secondary px-2 py-0.5 rounded-full font-bold">98% 정확도</span>
+</div>
+<p class="text-2xl font-headline font-extrabold text-on-surface">32,000원</p>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="p-4 bg-surface-container rounded-md">
+<span class="text-xs font-bold text-on-surface-variant uppercase mb-1 block">장소</span>
+<p class="font-bold">파스타집</p>
+</div>
+<div class="p-4 bg-surface-container rounded-md">
+<span class="text-xs font-bold text-on-surface-variant uppercase mb-1 block">분류</span>
+<div class="flex items-center gap-1.5">
+<span class="text-sm">🍽️</span>
+<p class="font-bold text-sm">식비</p>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full py-5 bg-on-surface text-white font-bold rounded-full text-lg shadow-xl active:scale-95 transition-all">
+                확인 및 계속
+            </button>
+</div>
+</div>
+</body></html>

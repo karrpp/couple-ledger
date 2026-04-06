@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#d9e4e9",
+                        "surface-bright": "#f1fbff",
+                        "surface": "#f1fbff",
+                        "surface-tint": "#ae2f34",
+                        "background": "#f1fbff",
+                        "tertiary-fixed-dim": "#9ccaff",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#ffb3b0",
+                        "on-secondary-fixed": "#221b00",
+                        "primary-fixed": "#ffdad8",
+                        "on-primary-fixed-variant": "#8c1520",
+                        "tertiary": "#0062a0",
+                        "on-secondary-container": "#72632e",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d1dce0",
+                        "inverse-surface": "#283236",
+                        "primary": "#ae2f34",
+                        "on-primary-container": "#6d0010",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#f6e29f",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#e4f0f4",
+                        "primary-container": "#ff6b6b",
+                        "outline-variant": "#e0bfbd",
+                        "surface-container-low": "#eaf5fa",
+                        "inverse-on-surface": "#e7f3f7",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#59a0e4",
+                        "on-tertiary-fixed": "#001d35",
+                        "secondary-fixed-dim": "#d9c686",
+                        "on-secondary-fixed-variant": "#534613",
+                        "secondary": "#6c5d28",
+                        "on-surface-variant": "#584140",
+                        "secondary-fixed": "#f6e29f",
+                        "outline": "#8c706f",
+                        "on-primary-fixed": "#410006",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#00355b",
+                        "tertiary-fixed": "#d0e4ff",
+                        "on-tertiary-fixed-variant": "#00497a",
+                        "on-surface": "#131d21",
+                        "on-background": "#131d21",
+                        "inverse-primary": "#ffb3b0",
+                        "surface-container-high": "#dfeaef",
+                        "surface-variant": "#d9e4e9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Be Vietnam Pro"],
+                        "label": ["Be Vietnam Pro"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- TopAppBar Shell -->
+<header class="bg-sky-50 dark:bg-slate-950 flex justify-between items-center px-6 py-4 w-full sticky top-0 z-50">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-rose-500 dark:text-rose-400">arrow_back</span>
+</div>
+<h1 class="text-xl font-extrabold tracking-tight text-rose-600 dark:text-rose-400 font-['Plus_Jakarta_Sans'] leading-tight">우리 가계부</h1>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-rose-500 dark:text-rose-400">notifications</span>
+</div>
+</header>
+<main class="px-5 pt-4 space-y-6">
+<!-- Date Selector & Toggle Section -->
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1 group">
+<h2 class="text-2xl font-bold font-headline tracking-tight">2026년 4월</h2>
+<span class="material-symbols-outlined text-on-surface-variant group-active:translate-y-0.5 transition-transform">expand_more</span>
+</div>
+<div class="flex items-center -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-surface-tint flex items-center justify-center overflow-hidden" data-alt="portrait of a smiling woman with warm lighting and soft background">
+<img alt="User A" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOv2KU19AZuwRGPtGWI_aaANURxWrHy6ySQEwuspRHY8-WR4IcsUavSPEv7lvBeiOWOZeQkSdO3XZzRn1yqwW_pkrUb8PZfqem1bUZ0QlMw4iE0C_n6vUM02xKO44T4uiWo2emIYClmPEHJ7ihaQI3DS4icVFQfrcwH-RqIrvcFUYnwaS2o0ShIt0dUC2TaTkm8n-tpZaVqE9dJ0F-T_WGbQJ6eR48M-ZBMNkfEDmypm0A22ZPmyhX0Sm0u3moEQeHhVzHX8EraJE"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-tertiary flex items-center justify-center overflow-hidden" data-alt="portrait of a smiling man with professional lighting and soft focus background">
+<img alt="User B" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKHZoiI4e5R437Azw8Gp9sJBmVLQUjEawD6p1zkXFaijE3yf2SVqWuvenbKO_31kNaBaUjHOui9un3SRmDssJvYjLbd9WtqRHb2afd4DdA6qQjDMuTgRQCAvnGgj_mAB35ekpCkieVN3ofQBFHiYvUBd1iWflkjwWxqv1fu6DXKac-PLORmVk-Pu8BV4fbQSCi1YEU5MdmTBMlAmpS_ZYH1XNNpUS9eigeeoHpG0QTSBOq136u48J0_RwbwnZqyF1idmIIITNmIUw"/>
+</div>
+</div>
+</div>
+<!-- Segmented Control Toggle -->
+<div class="bg-surface-container rounded-full p-1.5 flex gap-1">
+<button class="flex-1 py-2 rounded-full text-sm font-bold bg-primary-container text-on-primary-container shadow-sm transition-all scale-95 active:opacity-80">합산</button>
+<button class="flex-1 py-2 rounded-full text-sm font-medium text-on-surface-variant hover:bg-rose-50 transition-all">내 지출</button>
+<button class="flex-1 py-2 rounded-full text-sm font-medium text-on-surface-variant hover:bg-rose-50 transition-all">상대 지출</button>
+</div>
+</div>
+<!-- 1. Monthly Total Hero Card -->
+<div class="bg-surface-container-lowest rounded-lg p-6 space-y-4 shadow-[0_12px_32px_-4px_rgba(174,47,52,0.08)]">
+<div class="space-y-1">
+<p class="text-on-surface-variant text-sm font-medium">이번 달 총 지출</p>
+<div class="flex items-baseline gap-2">
+<h3 class="text-4xl font-extrabold font-headline tracking-tighter text-on-surface">1,247,000원</h3>
+<span class="text-primary font-bold text-sm">지난달 대비 +12% 📈</span>
+</div>
+</div>
+<div class="pt-4 border-t border-surface-container flex justify-between items-center">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary-container"></div>
+<p class="text-sm font-medium"><span class="text-on-surface-variant">나</span> 620,000원</p>
+</div>
+<div class="h-4 w-px bg-surface-container-highest"></div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-tertiary-container"></div>
+<p class="text-sm font-medium"><span class="text-on-surface-variant">상대</span> 627,000원</p>
+</div>
+</div>
+</div>
+<!-- 2. Budget Progress Card -->
+<div class="bg-surface-container rounded-lg p-6 space-y-4">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<p class="text-on-surface-variant text-sm font-medium">월 예산 1,500,000원</p>
+<h4 class="text-xl font-bold font-headline">253,000원 남음</h4>
+</div>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+                    예산 주의
+                </span>
+</div>
+<div class="relative w-full h-4 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-gradient-to-r from-primary to-primary-container rounded-full" style="width: 83%"></div>
+</div>
+<p class="text-[11px] text-on-surface-variant text-right font-medium">전체 예산의 83% 소진</p>
+</div>
+<div class="grid grid-cols-1 gap-6">
+<!-- 3. Category Breakdown -->
+<div class="bg-surface-container-lowest rounded-lg p-6 shadow-[0_12px_32px_-4px_rgba(174,47,52,0.08)]">
+<h4 class="text-lg font-bold font-headline mb-6">카테고리별 지출</h4>
+<div class="flex items-center gap-8">
+<!-- Fake Donut Chart -->
+<div class="relative w-28 h-28 flex-shrink-0">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="transparent" r="15.915" stroke="#f1fbff" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="transparent" r="15.915" stroke="#ff6b6b" stroke-dasharray="34 66" stroke-dashoffset="0" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="transparent" r="15.915" stroke="#6c5d28" stroke-dasharray="22 78" stroke-dashoffset="-34" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="transparent" r="15.915" stroke="#0062a0" stroke-dasharray="14 86" stroke-dashoffset="-56" stroke-width="4"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-[10px] text-on-surface-variant uppercase tracking-tighter">TOTAL</span>
+<span class="text-xs font-bold">124만</span>
+</div>
+</div>
+<ul class="flex-1 space-y-3">
+<li class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="text-lg">🍽️</span>
+<span class="text-sm font-bold">식비</span>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold">420,000원</p>
+<p class="text-[10px] text-on-surface-variant">34%</p>
+</div>
+</li>
+<li class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="text-lg">🛍️</span>
+<span class="text-sm font-bold">쇼핑</span>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold">280,000원</p>
+<p class="text-[10px] text-on-surface-variant">22%</p>
+</div>
+</li>
+<li class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="text-lg">🚌</span>
+<span class="text-sm font-bold">교통</span>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold">180,000원</p>
+<p class="text-[10px] text-on-surface-variant">14%</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<!-- 4. Daily Spending Trend -->
+<div class="bg-surface-container rounded-lg p-6">
+<h4 class="text-lg font-bold font-headline mb-6">일별 소비 트렌드</h4>
+<div class="flex items-end justify-between h-32 gap-1 px-2">
+<!-- Chart Bars -->
+<div class="flex flex-col-reverse w-3 h-full gap-0.5">
+<div class="bg-tertiary-container rounded-t-sm" style="height: 10%"></div>
+<div class="bg-primary-container" style="height: 20%"></div>
+</div>
+<div class="flex flex-col-reverse w-3 h-full gap-0.5">
+<div class="bg-tertiary-container rounded-t-sm" style="height: 15%"></div>
+<div class="bg-primary-container" style="height: 45%"></div>
+</div>
+<div class="flex flex-col-reverse w-3 h-full gap-0.5">
+<div class="bg-tertiary-container rounded-t-sm" style="height: 30%"></div>
+<div class="bg-primary-container" style="height: 25%"></div>
+</div>
+<div class="flex flex-col-reverse w-3 h-full gap-0.5">
+<div class="bg-tertiary-container rounded-t-sm" style="height: 20%"></div>
+<div class="bg-primary-container" style="height: 40%"></div>
+</div>
+<div class="flex flex-col-reverse w-3 h-full gap-0.5">
+<div class="bg-tertiary-container rounded-t-sm" style="height: 45%"></div>
+<div class="bg-primary-container" style="height: 30%"></div>
+</div>
+<div class="flex flex-col-reverse w-3 h-full gap-0.5">
+<div class="bg-tertiary-container rounded-t-sm" style="height: 10%"></div>
+<div class="bg-primary-container" style="height: 55%"></div>
+</div>
+<div class="flex flex-col-reverse w-3 h-full gap-0.5">
+<div class="bg-tertiary-container rounded-t-sm" style="height: 25%"></div>
+<div class="bg-primary-container" style="height: 25%"></div>
+</div>
+</div>
+<div class="flex justify-between mt-4 px-1">
+<span class="text-[10px] text-on-surface-variant font-bold">1</span>
+<span class="text-[10px] text-on-surface-variant font-bold">5</span>
+<span class="text-[10px] text-on-surface-variant font-bold">10</span>
+<span class="text-[10px] text-on-surface-variant font-bold">15</span>
+<span class="text-[10px] text-on-surface-variant font-bold">20</span>
+<span class="text-[10px] text-on-surface-variant font-bold">25</span>
+<span class="text-[10px] text-on-surface-variant font-bold">30</span>
+</div>
+</div>
+<!-- 5. Top 3 Categories (Podium) -->
+<div class="bg-surface-container-lowest rounded-lg p-6 shadow-[0_12px_32px_-4px_rgba(174,47,52,0.08)]">
+<h4 class="text-lg font-bold font-headline mb-8 text-center">많이 쓴 카테고리 Top 3</h4>
+<div class="flex items-end justify-center gap-4">
+<!-- 2nd -->
+<div class="flex flex-col items-center gap-3">
+<span class="text-xl">🛍️</span>
+<div class="bg-surface-container w-20 h-16 rounded-t-lg flex flex-col items-center justify-center p-2">
+<span class="text-xs font-bold text-on-surface-variant">🥈 쇼핑</span>
+</div>
+</div>
+<!-- 1st -->
+<div class="flex flex-col items-center gap-3">
+<span class="text-3xl">🍽️</span>
+<div class="bg-primary-container w-24 h-24 rounded-t-lg flex flex-col items-center justify-center p-2 shadow-lg">
+<span class="text-sm font-black text-on-primary-container">🥇 식비</span>
+</div>
+</div>
+<!-- 3rd -->
+<div class="flex flex-col items-center gap-3">
+<span class="text-lg">🚌</span>
+<div class="bg-surface-container-high w-20 h-12 rounded-t-lg flex flex-col items-center justify-center p-2">
+<span class="text-[10px] font-bold text-on-surface-variant">🥉 교통</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar Shell -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-8 pt-4 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-t-[3rem] z-50 shadow-[0_-8px_32px_-4px_rgba(174,47,52,0.08)]">
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-rose-400 transition-colors">
+<span class="material-symbols-outlined text-[24px]">calendar_today</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[11px] font-medium">캘린더</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-rose-100 dark:bg-rose-900/40 text-rose-600 dark:text-rose-200 rounded-full px-5 py-2 scale-110 active:scale-90 transition-transform duration-300">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[11px] font-medium">대시보드</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-rose-400 transition-colors">
+<span class="material-symbols-outlined text-[32px] text-rose-500" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[11px] font-medium">추가</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-rose-400 transition-colors">
+<span class="material-symbols-outlined text-[24px]">account_balance_wallet</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[11px] font-medium">예산</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-rose-400 transition-colors">
+<span class="material-symbols-outlined text-[24px]">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[11px] font-medium">설정</span>
+</div>
+</nav>
+</body></html>
