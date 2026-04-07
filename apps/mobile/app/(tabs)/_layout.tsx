@@ -1,59 +1,95 @@
 import React from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Link, Tabs } from 'expo-router';
-import { Pressable } from 'react-native';
+import { Tabs } from 'expo-router';
+import { View, StyleSheet } from 'react-native';
 
-import Colors from '@/constants/Colors';
-import { useColorScheme } from '@/components/useColorScheme';
-import { useClientOnlyValue } from '@/components/useClientOnlyValue';
+import { Colors } from '@/constants/Colors';
 
-// You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
+function TabIcon({ name, color, size = 24 }: { name: React.ComponentProps<typeof FontAwesome>['name']; color: string; size?: number }) {
+  return <FontAwesome name={name} size={size} color={color} />;
 }
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        // Disable the static render of the header on web
-        // to prevent a hydration error in React Navigation v6.
-        headerShown: useClientOnlyValue(false, true),
+        tabBarActiveTintColor: Colors.primary,
+        tabBarInactiveTintColor: Colors.tabInactive,
+        tabBarStyle: {
+          backgroundColor: Colors.surface,
+          borderTopColor: Colors.border,
+          height: 60,
+          paddingBottom: 8,
+          paddingTop: 4,
+        },
+        tabBarLabelStyle: {
+          fontSize: 11,
+          fontWeight: '600',
+        },
+        headerStyle: {
+          backgroundColor: Colors.surface,
+        },
+        headerTintColor: Colors.text,
+        headerTitleStyle: {
+          fontWeight: '700',
+        },
       }}>
       <Tabs.Screen
-        name="index"
+        name="calendar"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
+          title: '캘린더',
+          tabBarIcon: ({ color }) => <TabIcon name="calendar" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="dashboard"
+        options={{
+          title: '대시보드',
+          tabBarIcon: ({ color }) => <TabIcon name="bar-chart" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="add"
+        options={{
+          title: '',
+          tabBarIcon: () => (
+            <View style={styles.addButton}>
+              <FontAwesome name="plus" size={22} color="#fff" />
+            </View>
           ),
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="savings"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: '저금통',
+          tabBarIcon: ({ color }) => <TabIcon name="gift" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="settings"
+        options={{
+          title: '설정',
+          tabBarIcon: ({ color }) => <TabIcon name="cog" color={color} />,
         }}
       />
     </Tabs>
   );
 }
+
+const styles = StyleSheet.create({
+  addButton: {
+    width: 52,
+    height: 52,
+    borderRadius: 26,
+    backgroundColor: Colors.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 20,
+    shadowColor: Colors.primary,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 8,
+  },
+});

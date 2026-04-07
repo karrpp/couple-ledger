@@ -52,6 +52,8 @@ function RootLayoutNav() {
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="savings/[id]" options={{ title: '목표 상세' }} />
+        <Stack.Screen name="savings/create" options={{ title: '새 목표 만들기', presentation: 'modal' }} />
         <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
       </Stack>
     </ThemeProvider>
